@@ -34,18 +34,6 @@ import java.io.InputStream;
 
 public class MessageReader implements Closeable
 {
-  public static class Message
-  {
-    public final Header header;
-    public final Chunk chunk;
-
-    public Message(Header header, Chunk chunk)
-    {
-      this.header = header;
-      this.chunk = chunk;
-    }
-  }
-
   private enum State
   {
     HEADER_NEXT,
