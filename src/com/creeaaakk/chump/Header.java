@@ -31,20 +31,23 @@ import java.nio.ByteBuffer;
 
 public class Header
 {
+  public static final int VERSION_BYTES = Short.SIZE / 8;
   public static final int MESSAGE_TYPE_BYTES = Short.SIZE / 8;
   public static final int TAG_BYTES = Short.SIZE / 8;
-  public static final int HEADER_BYTES = MESSAGE_TYPE_BYTES + TAG_BYTES;
+  public static final int HEADER_BYTES = VERSION_BYTES + MESSAGE_TYPE_BYTES + TAG_BYTES;
 
+  public final short version;
   public final short messageType;
   public final short tag;
 
-  public Header(short messageType)
+  public Header(short version, short messageType)
   {
-    this(messageType, (short) 0);
+    this(version, messageType, (short) 0);
   }
 
-  public Header(short messageType, short tag)
+  public Header(short version, short messageType, short tag)
   {
+    this.version = version;
     this.messageType = messageType;
     this.tag = tag;
   }
@@ -55,8 +58,27 @@ public class Header
   public byte[] toBytes()
   {
     byte[] bytes = new byte[HEADER_BYTES];
-    ByteBuffer.wrap(bytes).putShort(messageType).putShort(tag);
+    ByteBuffer.wrap(bytes).putShort(version).putShort(messageType).putShort(tag);
     return bytes;
+  }
+
+  /**
+   * Helper function to get the version of a header.
+   * @param bytes array of bytes with a header at the beginning
+   * @return value of the version of the header
+   */
+  public static short parseVersion(byte[] bytes)
+  {
+    if (bytes == null)
+    {
+      throw new IllegalArgumentException("bytes are null");
+    }
+    else if (bytes.length < HEADER_BYTES)
+    {
+      throw new IllegalArgumentException("bytes length < " + HEADER_BYTES + ": " + bytes.length);
+    }
+
+    return ByteBuffer.wrap(bytes).getShort();
   }
 
   /**
@@ -75,7 +97,7 @@ public class Header
       throw new IllegalArgumentException("bytes length < " + HEADER_BYTES + ": " + bytes.length);
     }
 
-    return ByteBuffer.wrap(bytes).getShort();
+    return ByteBuffer.wrap(bytes).getShort(VERSION_BYTES);
   }
 
   /**
@@ -94,6 +116,6 @@ public class Header
       throw new IllegalArgumentException("bytes length < " + HEADER_BYTES + ": " + bytes.length);
     }
 
-    return ByteBuffer.wrap(bytes).getShort(MESSAGE_TYPE_BYTES);
+    return ByteBuffer.wrap(bytes).getShort(VERSION_BYTES + MESSAGE_TYPE_BYTES);
   }
 }

@@ -32,7 +32,6 @@ import java.io.DataInputStream;
 import java.io.EOFException;
 import java.io.IOException;
 import java.io.InputStream;
-import java.nio.ByteBuffer;
 
 public class HeaderReader implements Closeable
 {
@@ -80,9 +79,10 @@ public class HeaderReader implements Closeable
 
   private Header readBlocking() throws IOException, EOFException
   {
+    short version = input.readShort();
     short messageType = input.readShort();
     short tag = input.readShort();
-    return new Header(messageType, tag);
+    return new Header(version, messageType, tag);
   }
 
   private Header readNonblocking() throws IOException, EOFException
@@ -95,17 +95,5 @@ public class HeaderReader implements Closeable
     {
       return null;
     }
-  }
-
-  public static short parseMessageType(byte[] message)
-  {
-    ByteBuffer buffer = ByteBuffer.wrap(message);
-    return buffer.getShort(Short.SIZE / 8);
-  }
-
-  public static short parseTag(byte[] message)
-  {
-    ByteBuffer buffer = ByteBuffer.wrap(message);
-    return buffer.getShort();
   }
 }
