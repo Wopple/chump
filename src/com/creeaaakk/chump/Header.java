@@ -59,36 +59,39 @@ public class Header
     return bytes;
   }
 
+  /**
+   * Helper function to get the message type of a header.
+   * @param bytes array of bytes with a header at the beginning
+   * @return value of the message type of the header
+   */
   public static short parseMessageType(byte[] bytes)
   {
     if (bytes == null)
     {
       throw new IllegalArgumentException("bytes are null");
     }
-    else if (bytes.length < MESSAGE_TYPE_BYTES)
+    else if (bytes.length < HEADER_BYTES)
     {
-      throw new IllegalArgumentException("bytes length < " + MESSAGE_TYPE_BYTES + ": " + bytes.length);
+      throw new IllegalArgumentException("bytes length < " + HEADER_BYTES + ": " + bytes.length);
     }
 
     return ByteBuffer.wrap(bytes).getShort();
   }
 
   /**
-   * Helper function to get the tag of a header formatted as bytes for a message.
-   * @param bytes header formatted for a message
+   * Helper function to get the tag of a header.
+   * @param bytes array of bytes with a header at the beginning
    * @return value of the tag of the header
    */
   public static short parseTag(byte[] bytes)
   {
-    int minSize = MESSAGE_TYPE_BYTES + TAG_BYTES;
-
     if (bytes == null)
     {
       throw new IllegalArgumentException("bytes are null");
     }
-    else if (bytes.length < minSize)
+    else if (bytes.length < HEADER_BYTES)
     {
-      throw new IllegalArgumentException("bytes length < " + minSize + ": " + bytes.length);
+      throw new IllegalArgumentException("bytes length < " + HEADER_BYTES + ": " + bytes.length);
     }
 
     return ByteBuffer.wrap(bytes).getShort(MESSAGE_TYPE_BYTES);

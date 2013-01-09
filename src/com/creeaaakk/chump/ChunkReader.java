@@ -178,14 +178,14 @@ public class ChunkReader implements Closeable
 
   private Chunk readChunk(int size) throws IOException
   {
-    byte[] bytes = new byte[size];
-    int actual = input.read(bytes);
+    byte[] payload = new byte[size];
+    int actual = input.read(payload);
 
     if (actual != size)
     {
       throw new Error("unexpected actual size: " + actual + " expected: " + size);
     }
 
-    return new Chunk(bytes);
+    return new Chunk(payload);
   }
 }

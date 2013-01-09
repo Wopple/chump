@@ -58,7 +58,7 @@ public class ChunkTest extends TestCase
     byte[] bytes = new byte[Chunk.MAX_SIZE];
     Chunk chunk = new Chunk(bytes);
     assertEquals(Chunk.MAX_SIZE, chunk.size);
-    assertEquals(bytes, chunk.chunk);
+    assertEquals(bytes, chunk.payload);
 
     byte[] messageBytes = new byte[Chunk.SIZE_BYTES + Chunk.MAX_SIZE];
     ByteBuffer.wrap(messageBytes).putShort((short) Chunk.MAX_SIZE);

@@ -36,21 +36,21 @@ public class Chunk
   public static final int MAX_SIZE = 0xFFFF;
 
   public final int size;
-  public final byte[] chunk;
+  public final byte[] payload;
 
-  public Chunk(byte[] chunk)
+  public Chunk(byte[] payload)
   {
-    if (chunk == null)
+    if (payload == null)
     {
-      throw new IllegalArgumentException("chunk is null");
+      throw new IllegalArgumentException("payload is null");
     }
-    else if (chunk.length > MAX_SIZE)
+    else if (payload.length > MAX_SIZE)
     {
-      throw new IllegalArgumentException("chunk length > " + MAX_SIZE + ": " + chunk.length);
+      throw new IllegalArgumentException("payload length > " + MAX_SIZE + ": " + payload.length);
     }
 
-    this.size = chunk.length;
-    this.chunk = chunk;
+    this.size = payload.length;
+    this.payload = payload;
   }
 
   /**
@@ -58,27 +58,27 @@ public class Chunk
    */
   public byte[] toBytes()
   {
-    byte[] bytes = new byte[SIZE_BYTES + size];
-    ByteBuffer.wrap(bytes).putShort((short) size).put(chunk);
-    return bytes;
+    byte[] chunk = new byte[SIZE_BYTES + size];
+    ByteBuffer.wrap(chunk).putShort((short) size).put(payload);
+    return chunk;
   }
 
   /**
-   * Helper function to get the size of a chunk formatted as bytes for a message.
-   * @param bytes chunk formatted for a message
-   * @return value of the size of the chunk
+   * Helper function to get the size of a payload.
+   * @param chunk byte[] representing a chunk
+   * @return value of the size of the payload
    */
-  public static int parseSize(byte[] bytes)
+  public static int parseSize(byte[] chunk)
   {
-    if (bytes == null)
+    if (chunk == null)
     {
-      throw new IllegalArgumentException("bytes are null");
+      throw new IllegalArgumentException("chunk are null");
     }
-    else if (bytes.length < SIZE_BYTES)
+    else if (chunk.length < SIZE_BYTES)
     {
-      throw new IllegalArgumentException("bytes length < " + SIZE_BYTES + ": " + bytes.length);
+      throw new IllegalArgumentException("chunk length < " + SIZE_BYTES + ": " + chunk.length);
     }
 
-    return ByteBuffer.wrap(bytes).getShort() & SIZE_MASK;
+    return ByteBuffer.wrap(chunk).getShort() & SIZE_MASK;
   }
 }
