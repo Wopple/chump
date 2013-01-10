@@ -37,6 +37,8 @@ import org.junit.Test;
 
 public class HeaderReaderTest extends TestCase
 {
+  private boolean blocked = true;
+
   @Test
   public void testBlocking() throws IOException, InterruptedException
   {
@@ -74,11 +76,11 @@ public class HeaderReaderTest extends TestCase
         try
         {
           reader.read();
-          assertTrue(false);
+          blocked = false;
         }
-        catch (Exception exception)
+        catch (IOException exception)
         {
-          assertTrue(false);
+          exception.printStackTrace();
         }
       }
     });
@@ -86,6 +88,7 @@ public class HeaderReaderTest extends TestCase
     tests.start();
     tests.join(50);
     tests.interrupt();
+    assertEquals(true, blocked);
   }
 
   @Test
