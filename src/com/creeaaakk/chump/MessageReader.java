@@ -45,7 +45,7 @@ public class MessageReader implements Closeable
   private final HeaderReader headerReader;
   private final ChunkReader chunkReader;
 
-  private State state = State.HEADER_NEXT;
+  private State state;
   private Header header;
   private Chunk chunk;
 
@@ -55,6 +55,11 @@ public class MessageReader implements Closeable
     this.isBlocking = isBlocking;
     headerReader = new HeaderReader(input, isBlocking);
     chunkReader = new ChunkReader(input, isBlocking);
+
+    if (!isBlocking)
+    {
+      state = State.HEADER_NEXT;
+    }
   }
 
   @Override

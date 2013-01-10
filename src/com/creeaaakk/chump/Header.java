@@ -40,11 +40,6 @@ public class Header
   public final short messageType;
   public final short tag;
 
-  public Header(short version, short messageType)
-  {
-    this(version, messageType, (short) 0);
-  }
-
   public Header(short version, short messageType, short tag)
   {
     this.version = version;

@@ -44,7 +44,7 @@ public class ChunkReader implements Closeable
   private final DataInputStream input;
   private final boolean isBlocking;
 
-  private State state = State.SIZE_NEXT;
+  private State state;
   private int chunkSize = 0;
   private Chunk chunk;
 
@@ -62,6 +62,11 @@ public class ChunkReader implements Closeable
 
     this.input = new DataInputStream(input);
     this.isBlocking = isBlocking;
+
+    if (!isBlocking)
+    {
+      state = State.SIZE_NEXT;
+    }
   }
 
   @Override
@@ -179,13 +184,7 @@ public class ChunkReader implements Closeable
   private Chunk readChunk(int size) throws IOException
   {
     byte[] payload = new byte[size];
-    int actual = input.read(payload);
-
-    if (actual != size)
-    {
-      throw new Error("unexpected actual size: " + actual + " expected: " + size);
-    }
-
+    input.readFully(payload);
     return new Chunk(payload);
   }
 }

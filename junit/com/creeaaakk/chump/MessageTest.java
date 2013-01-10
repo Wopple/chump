@@ -27,70 +27,24 @@
 
 package com.creeaaakk.chump;
 
-public class MessageBuilder
+import java.util.Arrays;
+
+import junit.framework.TestCase;
+
+import org.junit.Test;
+
+public class MessageTest extends TestCase
 {
-  private short version;
-  private boolean hasVersion = false;
-
-  private short messageType;
-  private boolean hasMessageType = false;
-
-  private short tag;
-  private boolean hasTag = false;
-
-  private byte[] payload;
-  private boolean hasPayload = false;
-
-  public MessageBuilder setVersion(short version)
+  @Test
+  public void test()
   {
-    this.version = version;
-    hasVersion = true;
-    return this;
-  }
-
-  public MessageBuilder setMessageType(short messageType)
-  {
-    this.messageType = messageType;
-    hasMessageType = true;
-    return this;
-  }
-
-  public MessageBuilder setTag(short tag)
-  {
-    this.tag = tag;
-    hasTag = true;
-    return this;
-  }
-
-  public MessageBuilder setPayload(byte[] chunk)
-  {
-    this.payload = chunk;
-    hasPayload = true;
-    return this;
-  }
-
-  public Message build()
-  {
-    if (!hasVersion)
-    {
-      throw new Error("no version");
-    }
-
-    if (!hasMessageType)
-    {
-      throw new Error("no message type");
-    }
-
-    if (!hasTag)
-    {
-      throw new Error("no tag");
-    }
-
-    if (!hasPayload)
-    {
-      throw new Error("no payload");
-    }
-
-    return new Message(new Header(version, messageType, tag), new Chunk(payload));
+    byte[] expected =
+      { 0, 0,
+        0, 1,
+        0, 2,
+        0, 3,
+        4, 5, 6 };
+    Message message = new Message(new Header((short) 0, (short) 1, (short) 2), new Chunk(new byte[] { 4, 5, 6 }));
+    assertTrue(Arrays.equals(expected, message.toBytes()));
   }
 }

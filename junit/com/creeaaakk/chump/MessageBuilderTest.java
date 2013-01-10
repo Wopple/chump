@@ -27,70 +27,77 @@
 
 package com.creeaaakk.chump;
 
-public class MessageBuilder
+import java.util.Arrays;
+
+import junit.framework.TestCase;
+
+import org.junit.Test;
+
+public class MessageBuilderTest extends TestCase
 {
-  private short version;
-  private boolean hasVersion = false;
-
-  private short messageType;
-  private boolean hasMessageType = false;
-
-  private short tag;
-  private boolean hasTag = false;
-
-  private byte[] payload;
-  private boolean hasPayload = false;
-
-  public MessageBuilder setVersion(short version)
+  @Test
+  public void test()
   {
-    this.version = version;
-    hasVersion = true;
-    return this;
-  }
+    Message message = null;
 
-  public MessageBuilder setMessageType(short messageType)
-  {
-    this.messageType = messageType;
-    hasMessageType = true;
-    return this;
-  }
-
-  public MessageBuilder setTag(short tag)
-  {
-    this.tag = tag;
-    hasTag = true;
-    return this;
-  }
-
-  public MessageBuilder setPayload(byte[] chunk)
-  {
-    this.payload = chunk;
-    hasPayload = true;
-    return this;
-  }
-
-  public Message build()
-  {
-    if (!hasVersion)
+    try
     {
-      throw new Error("no version");
+      // missing payload, should throw Error
+      message = new MessageBuilder().setVersion((short) 0).setMessageType((short) 0).setTag((short) 0).build();
+    }
+    catch (Error error)
+    {
     }
 
-    if (!hasMessageType)
+    assertNull(message);
+
+    try
     {
-      throw new Error("no message type");
+      // missing tag, should throw Error
+      message = new MessageBuilder().setVersion((short) 0).setMessageType((short) 0).setPayload(new byte[0]).build();
+    }
+    catch (Error error)
+    {
     }
 
-    if (!hasTag)
+    assertNull(message);
+
+    try
     {
-      throw new Error("no tag");
+      // missing messsage type, should throw Error
+      message = new MessageBuilder().setVersion((short) 0).setTag((short) 0).setPayload(new byte[0]).build();
+    }
+    catch (Error error)
+    {
     }
 
-    if (!hasPayload)
+    assertNull(message);
+
+    try
     {
-      throw new Error("no payload");
+      // missing version, should throw Error
+      message = new MessageBuilder().setMessageType((short) 0).setTag((short) 0).setPayload(new byte[0]).build();
+    }
+    catch (Error error)
+    {
     }
 
-    return new Message(new Header(version, messageType, tag), new Chunk(payload));
+    assertNull(message);
+
+    try
+    {
+      message = new MessageBuilder().setVersion((short) 0).setMessageType((short) 1).setTag((short) 2).setPayload(new byte[] { 4, 5, 6 }).build();
+    }
+    catch (Throwable throwable)
+    {
+      throwable.printStackTrace();
+    }
+
+    assertNotNull(message);
+    assertEquals((short) 0, message.header.version);
+    assertEquals((short) 1, message.header.messageType);
+    assertEquals((short) 2, message.header.tag);
+    assertEquals(3, message.chunk.size);
+    assertTrue(Arrays.equals(new byte[] { 4, 5, 6 }, message.chunk.payload));
   }
 }
