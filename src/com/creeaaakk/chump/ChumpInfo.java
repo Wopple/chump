@@ -27,66 +27,7 @@
 
 package com.creeaaakk.chump;
 
-import java.util.Arrays;
-
-import junit.framework.TestCase;
-
-import org.junit.Test;
-
-public class MessageBuilderTest extends TestCase
+public final class ChumpInfo
 {
-  @Test
-  public void test()
-  {
-    Message message = null;
-
-    try
-    {
-      // missing payload, should throw Error
-      message = new MessageBuilder().setMessageType((short) 0).setTag((short) 0).build();
-    }
-    catch (Error error)
-    {
-    }
-
-    assertNull(message);
-
-    try
-    {
-      // missing tag, should throw Error
-      message = new MessageBuilder().setMessageType((short) 0).setPayload(new byte[0]).build();
-    }
-    catch (Error error)
-    {
-    }
-
-    assertNull(message);
-
-    try
-    {
-      // missing messsage type, should throw Error
-      message = new MessageBuilder().setTag((short) 0).setPayload(new byte[0]).build();
-    }
-    catch (Error error)
-    {
-    }
-
-    assertNull(message);
-
-    try
-    {
-      message = new MessageBuilder().setMessageType((short) 0).setTag((short) 1).setPayload(new byte[] { 3, 4 }).build();
-    }
-    catch (Throwable throwable)
-    {
-      throwable.printStackTrace();
-    }
-
-    assertNotNull(message);
-    assertEquals(ChumpInfo.PROTOCOL_VERSION, message.header.version);
-    assertEquals((short) 0, message.header.messageType);
-    assertEquals((short) 1, message.header.tag);
-    assertEquals(2, message.chunk.size);
-    assertTrue(Arrays.equals(new byte[] { 3, 4 }, message.chunk.payload));
-  }
+  public static final short PROTOCOL_VERSION = 0;
 }

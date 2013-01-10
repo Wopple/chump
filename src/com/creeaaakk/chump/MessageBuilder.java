@@ -29,9 +29,6 @@ package com.creeaaakk.chump;
 
 public class MessageBuilder
 {
-  private short version;
-  private boolean hasVersion = false;
-
   private short messageType;
   private boolean hasMessageType = false;
 
@@ -40,13 +37,6 @@ public class MessageBuilder
 
   private byte[] payload;
   private boolean hasPayload = false;
-
-  public MessageBuilder setVersion(short version)
-  {
-    this.version = version;
-    hasVersion = true;
-    return this;
-  }
 
   public MessageBuilder setMessageType(short messageType)
   {
@@ -71,11 +61,6 @@ public class MessageBuilder
 
   public Message build()
   {
-    if (!hasVersion)
-    {
-      throw new Error("no version");
-    }
-
     if (!hasMessageType)
     {
       throw new Error("no message type");
@@ -91,6 +76,6 @@ public class MessageBuilder
       throw new Error("no payload");
     }
 
-    return new Message(new Header(version, messageType, tag), new Chunk(payload));
+    return new Message(new Header(ChumpInfo.PROTOCOL_VERSION, messageType, tag), new Chunk(payload));
   }
 }
