@@ -11,7 +11,7 @@ version 0
     int16 -- version of the protocol (0x00 0x00)
     int16 -- type of the message (user defined)
     int16 -- tag (user defined, can be used to track responses)
-    uint32 -- number of bytes in the payload
+    uint16 -- number of bytes in the payload
     byte[] -- the payload (arbitrary length array of bytes, may be empty)
 
 ## Implementations
@@ -19,7 +19,7 @@ version 0
 
 CHUMP is designed to be a language independent protocol.
 
-1. java
+1. Java
 
 ## Origin
 ---------
