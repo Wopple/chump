@@ -10,8 +10,5 @@
 /.project
 /junit/.project
 /bin
-<<<<<<< HEAD
 /.settings
-=======
-/.settings/org.eclipse.jdt.core.prefs
->>>>>>> 1abb735
+
