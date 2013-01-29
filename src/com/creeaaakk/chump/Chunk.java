@@ -58,9 +58,17 @@ public class Chunk
    */
   public byte[] toBytes()
   {
-    byte[] chunk = new byte[SIZE_BYTES + size];
+    byte[] chunk = new byte[calcBytes()];
     ByteBuffer.wrap(chunk).putShort((short) size).put(payload);
     return chunk;
+  }
+
+  /**
+   * @return length of the byte[] that would be returned by toBytes()
+   */
+  public int calcBytes()
+  {
+    return SIZE_BYTES + size;
   }
 
   /**

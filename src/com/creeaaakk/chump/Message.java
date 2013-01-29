@@ -55,10 +55,16 @@ public class Message
    */
   public byte[] toBytes()
   {
-    byte[] headerBytes = header.toBytes();
-    byte[] chunkBytes = chunk.toBytes();
-    byte[] bytes = new byte[headerBytes.length + chunkBytes.length];
-    ByteBuffer.wrap(bytes).put(headerBytes).put(chunkBytes);
+    byte[] bytes = new byte[calcBytes()];
+    ByteBuffer.wrap(bytes).put(header.toBytes()).put(chunk.toBytes());
     return bytes;
+  }
+
+  /**
+   * @return length of the byte[] that would be returned by toBytes()
+   */
+  public int calcBytes()
+  {
+    return header.calcBytes() + chunk.calcBytes();
   }
 }

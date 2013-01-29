@@ -52,9 +52,17 @@ public class Header
    */
   public byte[] toBytes()
   {
-    byte[] bytes = new byte[HEADER_BYTES];
+    byte[] bytes = new byte[calcBytes()];
     ByteBuffer.wrap(bytes).putShort(version).putShort(messageType).putShort(tag);
     return bytes;
+  }
+
+  /**
+   * @return length of the byte[] that would be returned by toBytes()
+   */
+  public int calcBytes()
+  {
+    return HEADER_BYTES;
   }
 
   /**
