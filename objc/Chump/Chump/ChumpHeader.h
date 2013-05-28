@@ -29,23 +29,26 @@
 
 #import "Help.h"
 
-@interface ChumpChunk : NSObject
+@interface ChumpHeader : NSObject
 
-+ (int)sizeBytes;
-+ (int)sizeMask;
-+ (int)maxSize;
++ (int)versionBytes;
++ (int)messageTypeBytes;
++ (int)tagBytes;
++ (int)headerBytes;
 
-@property (strong) NSData *payload;
+@property short version;
+@property short messageType;
+@property short tag;
 
-+ (id)chunkWithPayload:(NSData *)payload;
-
-- (id)init;
++ (id)headerWithVersion:(short)version messageType:(short)messageType tag:(short)tag;
 
 // designated
-- (id)initWithPayload:(NSData *)payload;
+- (id)initWithVersion:(short)version messageType:(short)messageType tag:(short)tag;
 
 - (NSData *)toData;
 
-+ (unsigned short)parseSize:(NSData *)chunk;
++ (short)parseVersion:(NSData *)header;
++ (short)parseMessageType:(NSData *)header;
++ (short)parseTag:(NSData *)header;
 
 @end

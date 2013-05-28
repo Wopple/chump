@@ -27,25 +27,10 @@
 
 #import <Foundation/Foundation.h>
 
-#import "Help.h"
+@interface Help : NSObject
 
-@interface ChumpChunk : NSObject
-
-+ (int)sizeBytes;
-+ (int)sizeMask;
-+ (int)maxSize;
-
-@property (strong) NSData *payload;
-
-+ (id)chunkWithPayload:(NSData *)payload;
-
-- (id)init;
-
-// designated
-- (id)initWithPayload:(NSData *)payload;
-
-- (NSData *)toData;
-
-+ (unsigned short)parseSize:(NSData *)chunk;
++ (short)flipShort:(short)value;
++ (NSData *)flipShortAsData:(short)value;
++ (short)parseNetworkShort:(NSData *)data range:(NSRange)range;
 
 @end

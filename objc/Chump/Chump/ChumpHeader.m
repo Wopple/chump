@@ -25,52 +25,52 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "ChumpChunk.h"
+#import "ChumpHeader.h"
 
-@implementation ChumpChunk
+@implementation ChumpHeader
 
-+ (int)sizeBytes
++ (int)versionBytes
 {
     return 2;
 }
 
-+ (int)sizeMask
++ (int)messageTypeBytes
 {
-    return 0xFFFF;
+    return 2;
 }
 
-+ (int)maxSize
++ (int)tagBytes
 {
-    return 0xFFFF;
+    return 2;
 }
 
-@synthesize payload;
-
-+ (id)chunkWithPayload:(NSData *)payload
++ (int)headerBytes
 {
-    if (payload != nil)
-    {
-        return [[self alloc] initWithPayload:payload];
-    }
-    else
-    {
-        return [[self alloc] initWithPayload:[NSData dataWithBytes:nil length:0]];
-    }
+    return [ChumpHeader versionBytes] + [ChumpHeader messageTypeBytes] + [ChumpHeader tagBytes];
+}
+
+@synthesize version;
+@synthesize messageType;
+@synthesize tag;
+
++ (id)headerWithVersion:(short)version messageType:(short)messageType tag:(short)tag
+{
+    return [[self alloc] initWithVersion:version messageType:messageType tag:tag];
 }
 
 - (id)init
 {
-    return [self initWithPayload:[NSData dataWithBytes:nil length:0]];
+    NO_IMPLEMENTATION;
 }
 
 // designated
-- (id)initWithPayload:(NSData *)inPayload
+- (id)initWithVersion:(short)inVersion messageType:(short)inMessageType tag:(short)inTag
 {
-    RAISE_IF_NIL(inPayload);
-    
     if (self = [super init])
     {
-        payload = inPayload;
+        version = inVersion;
+        messageType = inMessageType;
+        tag = inTag;
     }
     
     return self;
@@ -78,15 +78,26 @@
 
 - (NSData *)toData
 {
-    NSMutableData *data = [NSMutableData dataWithCapacity:payload.length + [ChumpChunk sizeBytes]];
-    [data appendData:[Help flipShortAsData:payload.length]];
-    [data appendData:payload];
+    NSMutableData *data = [NSMutableData dataWithCapacity:[ChumpHeader headerBytes]];
+    [data appendData:[Help flipShortAsData:self.version]];
+    [data appendData:[Help flipShortAsData:self.messageType]];
+    [data appendData:[Help flipShortAsData:self.tag]];
     return [data copy];
 }
 
-+ (unsigned short)parseSize:(NSData *)chunk
++ (short)parseVersion:(NSData *)header
 {
-    return (unsigned short) [Help parseNetworkShort:chunk range:NSMakeRange(0, 2)];
+    return [Help parseNetworkShort:header range:NSMakeRange(0, [ChumpHeader versionBytes])];
+}
+
++ (short)parseMessageType:(NSData *)header
+{
+    return [Help parseNetworkShort:header range:NSMakeRange([ChumpHeader versionBytes], [ChumpHeader messageTypeBytes])];
+}
+
++ (short)parseTag:(NSData *)header
+{
+    return [Help parseNetworkShort:header range:NSMakeRange([ChumpHeader versionBytes] + [ChumpHeader messageTypeBytes], [ChumpHeader tagBytes])];
 }
 
 @end

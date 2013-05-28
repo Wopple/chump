@@ -19,6 +19,10 @@
 		D44DAC2A17542B2800072697 /* ChumpChunkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D44DAC2917542B2800072697 /* ChumpChunkTests.m */; };
 		D44DAC2B17542B7900072697 /* Chump.h in Headers */ = {isa = PBXBuildFile; fileRef = D44DABFC175428E800072697 /* Chump.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D44DAC3417542DAF00072697 /* libCWUtil.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D44DAC3117542D0E00072697 /* libCWUtil.a */; };
+		D44DAC3817543C2900072697 /* ChumpHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = D44DAC3617543C2900072697 /* ChumpHeader.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D44DAC3917543C2900072697 /* ChumpHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = D44DAC3717543C2900072697 /* ChumpHeader.m */; };
+		D44DAC3C1754437D00072697 /* Help.h in Headers */ = {isa = PBXBuildFile; fileRef = D44DAC3A1754437D00072697 /* Help.h */; };
+		D44DAC3D1754437D00072697 /* Help.m in Sources */ = {isa = PBXBuildFile; fileRef = D44DAC3B1754437D00072697 /* Help.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +68,10 @@
 		D44DAC2817542B2800072697 /* ChumpChunkTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChumpChunkTests.h; sourceTree = "<group>"; };
 		D44DAC2917542B2800072697 /* ChumpChunkTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChumpChunkTests.m; sourceTree = "<group>"; };
 		D44DAC2C17542D0E00072697 /* CWUtil.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CWUtil.xcodeproj; path = CWUtil/CWUtil/CWUtil.xcodeproj; sourceTree = SOURCE_ROOT; };
+		D44DAC3617543C2900072697 /* ChumpHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChumpHeader.h; sourceTree = "<group>"; };
+		D44DAC3717543C2900072697 /* ChumpHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChumpHeader.m; sourceTree = "<group>"; };
+		D44DAC3A1754437D00072697 /* Help.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Help.h; sourceTree = "<group>"; };
+		D44DAC3B1754437D00072697 /* Help.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Help.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +146,10 @@
 				D44DAC2117542A2000072697 /* ChumpChunk.m */,
 				D44DAC2417542A3E00072697 /* ChumpChunkReader.h */,
 				D44DAC2517542A3E00072697 /* ChumpChunkReader.m */,
+				D44DAC3617543C2900072697 /* ChumpHeader.h */,
+				D44DAC3717543C2900072697 /* ChumpHeader.m */,
+				D44DAC3A1754437D00072697 /* Help.h */,
+				D44DAC3B1754437D00072697 /* Help.m */,
 			);
 			path = Chump;
 			sourceTree = "<group>";
@@ -171,6 +183,8 @@
 				D44DAC2217542A2000072697 /* ChumpChunk.h in Headers */,
 				D44DAC2617542A3E00072697 /* ChumpChunkReader.h in Headers */,
 				D44DAC2B17542B7900072697 /* Chump.h in Headers */,
+				D44DAC3817543C2900072697 /* ChumpHeader.h in Headers */,
+				D44DAC3C1754437D00072697 /* Help.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,6 +305,8 @@
 			files = (
 				D44DAC2317542A2000072697 /* ChumpChunk.m in Sources */,
 				D44DAC2717542A3E00072697 /* ChumpChunkReader.m in Sources */,
+				D44DAC3917543C2900072697 /* ChumpHeader.m in Sources */,
+				D44DAC3D1754437D00072697 /* Help.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -461,6 +477,7 @@
 				D44DAC18175428E800072697 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D44DAC19175428E800072697 /* Build configuration list for PBXNativeTarget "ChumpTests" */ = {
 			isa = XCConfigurationList;
@@ -469,6 +486,7 @@
 				D44DAC1B175428E800072697 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
