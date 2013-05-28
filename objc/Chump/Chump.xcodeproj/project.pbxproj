@@ -23,8 +23,12 @@
 		D44DAC3917543C2900072697 /* ChumpHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = D44DAC3717543C2900072697 /* ChumpHeader.m */; };
 		D44DAC3C1754437D00072697 /* Help.h in Headers */ = {isa = PBXBuildFile; fileRef = D44DAC3A1754437D00072697 /* Help.h */; };
 		D44DAC3D1754437D00072697 /* Help.m in Sources */ = {isa = PBXBuildFile; fileRef = D44DAC3B1754437D00072697 /* Help.m */; };
-		D44DAC4017544E9000072697 /* ChumpHeaderReader.h in Headers */ = {isa = PBXBuildFile; fileRef = D44DAC3E17544E9000072697 /* ChumpHeaderReader.h */; };
+		D44DAC4017544E9000072697 /* ChumpHeaderReader.h in Headers */ = {isa = PBXBuildFile; fileRef = D44DAC3E17544E9000072697 /* ChumpHeaderReader.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D44DAC4117544E9000072697 /* ChumpHeaderReader.m in Sources */ = {isa = PBXBuildFile; fileRef = D44DAC3F17544E9000072697 /* ChumpHeaderReader.m */; };
+		D44DAC441754676C00072697 /* ChumpMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = D44DAC421754676C00072697 /* ChumpMessage.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D44DAC451754676C00072697 /* ChumpMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = D44DAC431754676C00072697 /* ChumpMessage.m */; };
+		D44DAC481754710D00072697 /* ChumpMessageBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = D44DAC461754710D00072697 /* ChumpMessageBuilder.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D44DAC491754710D00072697 /* ChumpMessageBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = D44DAC471754710D00072697 /* ChumpMessageBuilder.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +80,10 @@
 		D44DAC3B1754437D00072697 /* Help.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Help.m; sourceTree = "<group>"; };
 		D44DAC3E17544E9000072697 /* ChumpHeaderReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChumpHeaderReader.h; sourceTree = "<group>"; };
 		D44DAC3F17544E9000072697 /* ChumpHeaderReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChumpHeaderReader.m; sourceTree = "<group>"; };
+		D44DAC421754676C00072697 /* ChumpMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChumpMessage.h; sourceTree = "<group>"; };
+		D44DAC431754676C00072697 /* ChumpMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChumpMessage.m; sourceTree = "<group>"; };
+		D44DAC461754710D00072697 /* ChumpMessageBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChumpMessageBuilder.h; sourceTree = "<group>"; };
+		D44DAC471754710D00072697 /* ChumpMessageBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChumpMessageBuilder.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,16 +154,20 @@
 				D44DAC2C17542D0E00072697 /* CWUtil.xcodeproj */,
 				D44DABFB175428E800072697 /* Chump-Prefix.pch */,
 				D44DABFC175428E800072697 /* Chump.h */,
+				D44DAC3A1754437D00072697 /* Help.h */,
+				D44DAC3B1754437D00072697 /* Help.m */,
 				D44DAC2017542A2000072697 /* ChumpChunk.h */,
 				D44DAC2117542A2000072697 /* ChumpChunk.m */,
 				D44DAC2417542A3E00072697 /* ChumpChunkReader.h */,
 				D44DAC2517542A3E00072697 /* ChumpChunkReader.m */,
 				D44DAC3617543C2900072697 /* ChumpHeader.h */,
 				D44DAC3717543C2900072697 /* ChumpHeader.m */,
-				D44DAC3A1754437D00072697 /* Help.h */,
-				D44DAC3B1754437D00072697 /* Help.m */,
 				D44DAC3E17544E9000072697 /* ChumpHeaderReader.h */,
 				D44DAC3F17544E9000072697 /* ChumpHeaderReader.m */,
+				D44DAC421754676C00072697 /* ChumpMessage.h */,
+				D44DAC431754676C00072697 /* ChumpMessage.m */,
+				D44DAC461754710D00072697 /* ChumpMessageBuilder.h */,
+				D44DAC471754710D00072697 /* ChumpMessageBuilder.m */,
 			);
 			path = Chump;
 			sourceTree = "<group>";
@@ -192,6 +204,8 @@
 				D44DAC3817543C2900072697 /* ChumpHeader.h in Headers */,
 				D44DAC3C1754437D00072697 /* Help.h in Headers */,
 				D44DAC4017544E9000072697 /* ChumpHeaderReader.h in Headers */,
+				D44DAC441754676C00072697 /* ChumpMessage.h in Headers */,
+				D44DAC481754710D00072697 /* ChumpMessageBuilder.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -315,6 +329,8 @@
 				D44DAC3917543C2900072697 /* ChumpHeader.m in Sources */,
 				D44DAC3D1754437D00072697 /* Help.m in Sources */,
 				D44DAC4117544E9000072697 /* ChumpHeaderReader.m in Sources */,
+				D44DAC451754676C00072697 /* ChumpMessage.m in Sources */,
+				D44DAC491754710D00072697 /* ChumpMessageBuilder.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

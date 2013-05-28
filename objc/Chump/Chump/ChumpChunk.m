@@ -78,10 +78,15 @@
 
 - (NSData *)toData
 {
-    NSMutableData *data = [NSMutableData dataWithCapacity:payload.length + [ChumpChunk sizeBytes]];
+    NSMutableData *data = [NSMutableData dataWithCapacity:[self calcBytes]];
     [data appendData:[Help flipShortAsData:payload.length]];
     [data appendData:payload];
     return [data copy];
+}
+
+- (NSUInteger)calcBytes
+{
+    return payload.length + [ChumpChunk sizeBytes];
 }
 
 + (unsigned short)parseSize:(NSData *)chunk

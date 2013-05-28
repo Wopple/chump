@@ -78,11 +78,16 @@
 
 - (NSData *)toData
 {
-    NSMutableData *data = [NSMutableData dataWithCapacity:[ChumpHeader headerBytes]];
+    NSMutableData *data = [NSMutableData dataWithCapacity:[self calcBytes]];
     [data appendData:[Help flipShortAsData:self.version]];
     [data appendData:[Help flipShortAsData:self.messageType]];
     [data appendData:[Help flipShortAsData:self.tag]];
     return [data copy];
+}
+
+- (NSUInteger)calcBytes
+{
+    return [ChumpHeader headerBytes];
 }
 
 + (short)parseVersion:(NSData *)header

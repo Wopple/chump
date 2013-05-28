@@ -25,31 +25,28 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import <Foundation/Foundation.h>
+#import "ChumpMessageBuilder.h"
 
-#import "Help.h"
+@implementation ChumpMessageBuilder
 
-@interface ChumpHeader : NSObject
+@synthesize messageType;
+@synthesize tag;
+@synthesize payload;
 
-+ (int)versionBytes;
-+ (int)messageTypeBytes;
-+ (int)tagBytes;
-+ (int)headerBytes;
+- (void)throw:(NSString *)field
+{
+    [NSException raise:@"incomplete ChumpMessageBuilder" format:@"missing: %@", field];
+}
 
-@property short version;
-@property short messageType;
-@property short tag;
-
-+ (id)headerWithVersion:(short)version messageType:(short)messageType tag:(short)tag;
-
-// designated
-- (id)initWithVersion:(short)version messageType:(short)messageType tag:(short)tag;
-
-- (NSData *)toData;
-- (NSUInteger)calcBytes;
-
-+ (short)parseVersion:(NSData *)header;
-+ (short)parseMessageType:(NSData *)header;
-+ (short)parseTag:(NSData *)header;
+- (ChumpMessage *)build
+{
+    if (messageType == nil) [self throw:@"messageType"];
+    if (tag == nil) [self throw:@"tag"];
+    if (payload == nil) [self throw:@"payload"];
+    
+    return [ChumpMessage
+            messageWithHeader:[ChumpHeader headerWithVersion:0 messageType:[messageType shortValue] tag:[tag shortValue]]
+            chunk:[ChumpChunk chunkWithPayload:payload]];
+}
 
 @end

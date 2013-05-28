@@ -25,31 +25,49 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import <Foundation/Foundation.h>
+#import "ChumpMessage.h"
 
-#import "Help.h"
+@implementation ChumpMessage
 
-@interface ChumpHeader : NSObject
+@synthesize header;
+@synthesize chunk;
 
-+ (int)versionBytes;
-+ (int)messageTypeBytes;
-+ (int)tagBytes;
-+ (int)headerBytes;
++ (id)messageWithHeader:(ChumpHeader *)header chunk:(ChumpChunk *)chunk
+{
+    return [[self alloc] initWithHeader:header chunk:chunk];
+}
 
-@property short version;
-@property short messageType;
-@property short tag;
-
-+ (id)headerWithVersion:(short)version messageType:(short)messageType tag:(short)tag;
+- (id)init
+{
+    NO_IMPLEMENTATION;
+}
 
 // designated
-- (id)initWithVersion:(short)version messageType:(short)messageType tag:(short)tag;
+- (id)initWithHeader:(ChumpHeader *)inHeader chunk:(ChumpChunk *)inChunk
+{
+    RAISE_IF_NIL(inHeader);
+    RAISE_IF_NIL(inChunk);
+    
+    if (self = [super init])
+    {
+        header = inHeader;
+        chunk = inChunk;
+    }
+    
+    return self;
+}
 
-- (NSData *)toData;
-- (NSUInteger)calcBytes;
+- (NSData *)toData
+{
+    NSMutableData *data = [NSMutableData dataWithCapacity:[self calcBytes]];
+    [data appendData:[header toData]];
+    [data appendData:[chunk toData]];
+    return [data copy];
+}
 
-+ (short)parseVersion:(NSData *)header;
-+ (short)parseMessageType:(NSData *)header;
-+ (short)parseTag:(NSData *)header;
+- (NSUInteger)calcBytes
+{
+    return [header calcBytes] + [chunk calcBytes];
+}
 
 @end

@@ -45,6 +45,7 @@
 - (id)initWithPayload:(NSData *)payload;
 
 - (NSData *)toData;
+- (NSUInteger)calcBytes;
 
 + (unsigned short)parseSize:(NSData *)chunk;
 

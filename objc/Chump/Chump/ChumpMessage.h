@@ -27,29 +27,20 @@
 
 #import <Foundation/Foundation.h>
 
-#import "Help.h"
+#import "ChumpHeader.h"
+#import "ChumpChunk.h"
 
-@interface ChumpHeader : NSObject
+@interface ChumpMessage : NSObject
 
-+ (int)versionBytes;
-+ (int)messageTypeBytes;
-+ (int)tagBytes;
-+ (int)headerBytes;
+@property (strong) ChumpHeader *header;
+@property (strong) ChumpChunk *chunk;
 
-@property short version;
-@property short messageType;
-@property short tag;
-
-+ (id)headerWithVersion:(short)version messageType:(short)messageType tag:(short)tag;
++ (id)messageWithHeader:(ChumpHeader *)header chunk:(ChumpChunk *)chunk;
 
 // designated
-- (id)initWithVersion:(short)version messageType:(short)messageType tag:(short)tag;
+- (id)initWithHeader:(ChumpHeader *)header chunk:(ChumpChunk *)chunk;
 
 - (NSData *)toData;
 - (NSUInteger)calcBytes;
-
-+ (short)parseVersion:(NSData *)header;
-+ (short)parseMessageType:(NSData *)header;
-+ (short)parseTag:(NSData *)header;
 
 @end
