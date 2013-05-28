@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D46001A0174D778D006FFF07"
-               BuildableName = "libchump.a"
-               BlueprintName = "chump"
-               ReferencedContainer = "container:chump.xcodeproj">
+               BlueprintIdentifier = "D44DABEF175428E800072697"
+               BuildableName = "libChump.a"
+               BlueprintName = "Chump"
+               ReferencedContainer = "container:Chump.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,10 +32,10 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D46001B4174D778D006FFF07"
-               BuildableName = "chumpTests.octest"
-               BlueprintName = "chumpTests"
-               ReferencedContainer = "container:chump.xcodeproj">
+               BlueprintIdentifier = "D44DAC03175428E800072697"
+               BuildableName = "ChumpTests.octest"
+               BlueprintName = "ChumpTests"
+               ReferencedContainer = "container:Chump.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>

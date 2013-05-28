@@ -25,12 +25,31 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#ifdef __OBJC__
-#import <Cocoa/Cocoa.h>
-#endif
+#import <Foundation/Foundation.h>
 
-#define RAISE_IF_NIL(arg) if (arg == nil) @throw [NSException exceptionWithName:@"invalid nil" reason:[NSString stringWithUTF8String:__PRETTY_FUNCTION__] userInfo:nil]
-#define RAISE_IF_ZERO(arg) if (arg == 0) @throw [NSException exceptionWithName:@"invalid zero value" reason:[NSString stringWithUTF8String:__PRETTY_FUNCTION__] userInfo:nil]
-#define NO_IMPLEMENTATION @throw [NSException exceptionWithName:@"no implementation" reason:[NSString stringWithUTF8String:__PRETTY_FUNCTION__] userInfo:nil]
+#import <CWUtil/CWDataReader.h>
 
-#define FREE_IF_NOT_NULL(arg) if (arg != NULL) free(arg)
+#import "ChumpChunk.h"
+
+typedef enum
+{
+    SIZE_NEXT,
+    CHUNK_NEXT
+} State;
+
+@interface ChumpChunkReader : NSObject
+{
+@private
+    NSInputStream *input;
+    State state;
+    CWDataReader *dataReader;
+    unsigned int chunkSize;
+}
+
+// designated
+- (id)initWithInput:(NSInputStream *)input;
+
+- (void)close;
+- (ChumpChunk *)read;
+
+@end

@@ -7,235 +7,269 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D46001A5174D778D006FFF07 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D46001A4174D778D006FFF07 /* Cocoa.framework */; };
-		D46001B7174D778D006FFF07 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D46001B6174D778D006FFF07 /* SenTestingKit.framework */; };
-		D46001B8174D778D006FFF07 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D46001A4174D778D006FFF07 /* Cocoa.framework */; };
-		D46001BB174D778D006FFF07 /* libchump.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D46001A1174D778D006FFF07 /* libchump.a */; };
-		D46001C1174D778D006FFF07 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D46001BF174D778D006FFF07 /* InfoPlist.strings */; };
-		D46001D2174D7E65006FFF07 /* constants.h in Headers */ = {isa = PBXBuildFile; fileRef = D46001D1174D7E65006FFF07 /* constants.h */; };
-		D46001D5174D7F6D006FFF07 /* CWChunk.h in Headers */ = {isa = PBXBuildFile; fileRef = D46001D3174D7F6D006FFF07 /* CWChunk.h */; };
-		D46001D6174D7F6D006FFF07 /* CWChunk.m in Sources */ = {isa = PBXBuildFile; fileRef = D46001D4174D7F6D006FFF07 /* CWChunk.m */; };
-		D46001DC174D8D89006FFF07 /* CWChunkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D46001DB174D8D89006FFF07 /* CWChunkTests.m */; };
+		D44DABF4175428E800072697 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44DABF3175428E800072697 /* Cocoa.framework */; };
+		D44DAC06175428E800072697 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44DAC05175428E800072697 /* SenTestingKit.framework */; };
+		D44DAC07175428E800072697 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44DABF3175428E800072697 /* Cocoa.framework */; };
+		D44DAC0A175428E800072697 /* libChump.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D44DABF0175428E800072697 /* libChump.a */; };
+		D44DAC10175428E800072697 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D44DAC0E175428E800072697 /* InfoPlist.strings */; };
+		D44DAC2217542A2000072697 /* ChumpChunk.h in Headers */ = {isa = PBXBuildFile; fileRef = D44DAC2017542A2000072697 /* ChumpChunk.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D44DAC2317542A2000072697 /* ChumpChunk.m in Sources */ = {isa = PBXBuildFile; fileRef = D44DAC2117542A2000072697 /* ChumpChunk.m */; };
+		D44DAC2617542A3E00072697 /* ChumpChunkReader.h in Headers */ = {isa = PBXBuildFile; fileRef = D44DAC2417542A3E00072697 /* ChumpChunkReader.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D44DAC2717542A3E00072697 /* ChumpChunkReader.m in Sources */ = {isa = PBXBuildFile; fileRef = D44DAC2517542A3E00072697 /* ChumpChunkReader.m */; };
+		D44DAC2A17542B2800072697 /* ChumpChunkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D44DAC2917542B2800072697 /* ChumpChunkTests.m */; };
+		D44DAC2B17542B7900072697 /* Chump.h in Headers */ = {isa = PBXBuildFile; fileRef = D44DABFC175428E800072697 /* Chump.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D44DAC3417542DAF00072697 /* libCWUtil.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D44DAC3117542D0E00072697 /* libCWUtil.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		D46001B9174D778D006FFF07 /* PBXContainerItemProxy */ = {
+		D44DAC08175428E800072697 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = D4600199174D778D006FFF07 /* Project object */;
+			containerPortal = D44DABE8175428E800072697 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = D46001A0174D778D006FFF07;
-			remoteInfo = chump;
+			remoteGlobalIDString = D44DABEF175428E800072697;
+			remoteInfo = Chump;
+		};
+		D44DAC3017542D0E00072697 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D44DAC2C17542D0E00072697 /* CWUtil.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D44DABCE1754241D00072697;
+			remoteInfo = CWUtil;
+		};
+		D44DAC3217542D6200072697 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D44DAC2C17542D0E00072697 /* CWUtil.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D44DABCD1754241D00072697;
+			remoteInfo = CWUtil;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		D46001A1174D778D006FFF07 /* libchump.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libchump.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		D46001A4174D778D006FFF07 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
-		D46001A7174D778D006FFF07 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
-		D46001A8174D778D006FFF07 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		D46001A9174D778D006FFF07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		D46001AC174D778D006FFF07 /* chump-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "chump-Prefix.pch"; sourceTree = "<group>"; };
-		D46001B5174D778D006FFF07 /* chumpTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = chumpTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D46001B6174D778D006FFF07 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		D46001BE174D778D006FFF07 /* chumpTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "chumpTests-Info.plist"; sourceTree = "<group>"; };
-		D46001C0174D778D006FFF07 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		D46001D1174D7E65006FFF07 /* constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = constants.h; sourceTree = "<group>"; };
-		D46001D3174D7F6D006FFF07 /* CWChunk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWChunk.h; sourceTree = "<group>"; };
-		D46001D4174D7F6D006FFF07 /* CWChunk.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWChunk.m; sourceTree = "<group>"; };
-		D46001DA174D8D89006FFF07 /* CWChunkTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWChunkTests.h; sourceTree = "<group>"; };
-		D46001DB174D8D89006FFF07 /* CWChunkTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWChunkTests.m; sourceTree = "<group>"; };
+		D44DABF0175428E800072697 /* libChump.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libChump.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		D44DABF3175428E800072697 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		D44DABF6175428E800072697 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		D44DABF7175428E800072697 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		D44DABF8175428E800072697 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D44DABFB175428E800072697 /* Chump-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Chump-Prefix.pch"; sourceTree = "<group>"; };
+		D44DABFC175428E800072697 /* Chump.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Chump.h; sourceTree = "<group>"; };
+		D44DAC04175428E800072697 /* ChumpTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChumpTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D44DAC05175428E800072697 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		D44DAC0D175428E800072697 /* ChumpTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ChumpTests-Info.plist"; sourceTree = "<group>"; };
+		D44DAC0F175428E800072697 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D44DAC2017542A2000072697 /* ChumpChunk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChumpChunk.h; sourceTree = "<group>"; };
+		D44DAC2117542A2000072697 /* ChumpChunk.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChumpChunk.m; sourceTree = "<group>"; };
+		D44DAC2417542A3E00072697 /* ChumpChunkReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChumpChunkReader.h; sourceTree = "<group>"; };
+		D44DAC2517542A3E00072697 /* ChumpChunkReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChumpChunkReader.m; sourceTree = "<group>"; };
+		D44DAC2817542B2800072697 /* ChumpChunkTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChumpChunkTests.h; sourceTree = "<group>"; };
+		D44DAC2917542B2800072697 /* ChumpChunkTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChumpChunkTests.m; sourceTree = "<group>"; };
+		D44DAC2C17542D0E00072697 /* CWUtil.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CWUtil.xcodeproj; path = CWUtil/CWUtil/CWUtil.xcodeproj; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		D460019E174D778D006FFF07 /* Frameworks */ = {
+		D44DABED175428E800072697 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D46001A5174D778D006FFF07 /* Cocoa.framework in Frameworks */,
+				D44DAC3417542DAF00072697 /* libCWUtil.a in Frameworks */,
+				D44DABF4175428E800072697 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D46001B1174D778D006FFF07 /* Frameworks */ = {
+		D44DAC00175428E800072697 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D46001B7174D778D006FFF07 /* SenTestingKit.framework in Frameworks */,
-				D46001B8174D778D006FFF07 /* Cocoa.framework in Frameworks */,
-				D46001BB174D778D006FFF07 /* libchump.a in Frameworks */,
+				D44DAC06175428E800072697 /* SenTestingKit.framework in Frameworks */,
+				D44DAC07175428E800072697 /* Cocoa.framework in Frameworks */,
+				D44DAC0A175428E800072697 /* libChump.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		D4600198174D778D006FFF07 = {
+		D44DABE7175428E800072697 = {
 			isa = PBXGroup;
 			children = (
-				D46001AA174D778D006FFF07 /* chump */,
-				D46001BC174D778D006FFF07 /* chumpTests */,
-				D46001A3174D778D006FFF07 /* Frameworks */,
-				D46001A2174D778D006FFF07 /* Products */,
+				D44DABF9175428E800072697 /* Chump */,
+				D44DAC0B175428E800072697 /* ChumpTests */,
+				D44DABF2175428E800072697 /* Frameworks */,
+				D44DABF1175428E800072697 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		D46001A2174D778D006FFF07 /* Products */ = {
+		D44DABF1175428E800072697 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D46001A1174D778D006FFF07 /* libchump.a */,
-				D46001B5174D778D006FFF07 /* chumpTests.octest */,
+				D44DABF0175428E800072697 /* libChump.a */,
+				D44DAC04175428E800072697 /* ChumpTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		D46001A3174D778D006FFF07 /* Frameworks */ = {
+		D44DABF2175428E800072697 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D46001A4174D778D006FFF07 /* Cocoa.framework */,
-				D46001B6174D778D006FFF07 /* SenTestingKit.framework */,
-				D46001A6174D778D006FFF07 /* Other Frameworks */,
+				D44DABF3175428E800072697 /* Cocoa.framework */,
+				D44DAC05175428E800072697 /* SenTestingKit.framework */,
+				D44DABF5175428E800072697 /* Other Frameworks */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		D46001A6174D778D006FFF07 /* Other Frameworks */ = {
+		D44DABF5175428E800072697 /* Other Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D46001A7174D778D006FFF07 /* AppKit.framework */,
-				D46001A8174D778D006FFF07 /* CoreData.framework */,
-				D46001A9174D778D006FFF07 /* Foundation.framework */,
+				D44DABF6175428E800072697 /* AppKit.framework */,
+				D44DABF7175428E800072697 /* CoreData.framework */,
+				D44DABF8175428E800072697 /* Foundation.framework */,
 			);
 			name = "Other Frameworks";
 			sourceTree = "<group>";
 		};
-		D46001AA174D778D006FFF07 /* chump */ = {
+		D44DABF9175428E800072697 /* Chump */ = {
 			isa = PBXGroup;
 			children = (
-				D46001D3174D7F6D006FFF07 /* CWChunk.h */,
-				D46001D4174D7F6D006FFF07 /* CWChunk.m */,
-				D46001D1174D7E65006FFF07 /* constants.h */,
-				D46001AB174D778D006FFF07 /* Supporting Files */,
+				D44DAC2C17542D0E00072697 /* CWUtil.xcodeproj */,
+				D44DABFB175428E800072697 /* Chump-Prefix.pch */,
+				D44DABFC175428E800072697 /* Chump.h */,
+				D44DAC2017542A2000072697 /* ChumpChunk.h */,
+				D44DAC2117542A2000072697 /* ChumpChunk.m */,
+				D44DAC2417542A3E00072697 /* ChumpChunkReader.h */,
+				D44DAC2517542A3E00072697 /* ChumpChunkReader.m */,
 			);
-			path = chump;
+			path = Chump;
 			sourceTree = "<group>";
 		};
-		D46001AB174D778D006FFF07 /* Supporting Files */ = {
+		D44DAC0B175428E800072697 /* ChumpTests */ = {
 			isa = PBXGroup;
 			children = (
-				D46001AC174D778D006FFF07 /* chump-Prefix.pch */,
+				D44DAC0D175428E800072697 /* ChumpTests-Info.plist */,
+				D44DAC0E175428E800072697 /* InfoPlist.strings */,
+				D44DAC2817542B2800072697 /* ChumpChunkTests.h */,
+				D44DAC2917542B2800072697 /* ChumpChunkTests.m */,
 			);
-			name = "Supporting Files";
+			path = ChumpTests;
 			sourceTree = "<group>";
 		};
-		D46001BC174D778D006FFF07 /* chumpTests */ = {
+		D44DAC2D17542D0E00072697 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D46001BD174D778D006FFF07 /* Supporting Files */,
-				D46001DA174D8D89006FFF07 /* CWChunkTests.h */,
-				D46001DB174D8D89006FFF07 /* CWChunkTests.m */,
+				D44DAC3117542D0E00072697 /* libCWUtil.a */,
 			);
-			path = chumpTests;
-			sourceTree = "<group>";
-		};
-		D46001BD174D778D006FFF07 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				D46001BE174D778D006FFF07 /* chumpTests-Info.plist */,
-				D46001BF174D778D006FFF07 /* InfoPlist.strings */,
-			);
-			name = "Supporting Files";
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		D460019F174D778D006FFF07 /* Headers */ = {
+		D44DABEE175428E800072697 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D46001D2174D7E65006FFF07 /* constants.h in Headers */,
-				D46001D5174D7F6D006FFF07 /* CWChunk.h in Headers */,
+				D44DAC2217542A2000072697 /* ChumpChunk.h in Headers */,
+				D44DAC2617542A3E00072697 /* ChumpChunkReader.h in Headers */,
+				D44DAC2B17542B7900072697 /* Chump.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		D46001A0174D778D006FFF07 /* chump */ = {
+		D44DABEF175428E800072697 /* Chump */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D46001C7174D778D006FFF07 /* Build configuration list for PBXNativeTarget "chump" */;
+			buildConfigurationList = D44DAC16175428E800072697 /* Build configuration list for PBXNativeTarget "Chump" */;
 			buildPhases = (
-				D460019D174D778D006FFF07 /* Sources */,
-				D460019E174D778D006FFF07 /* Frameworks */,
-				D460019F174D778D006FFF07 /* Headers */,
+				D44DABEC175428E800072697 /* Sources */,
+				D44DABED175428E800072697 /* Frameworks */,
+				D44DABEE175428E800072697 /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				D44DAC3317542D6200072697 /* PBXTargetDependency */,
 			);
-			name = chump;
-			productName = chump;
-			productReference = D46001A1174D778D006FFF07 /* libchump.a */;
+			name = Chump;
+			productName = Chump;
+			productReference = D44DABF0175428E800072697 /* libChump.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		D46001B4174D778D006FFF07 /* chumpTests */ = {
+		D44DAC03175428E800072697 /* ChumpTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D46001CA174D778D006FFF07 /* Build configuration list for PBXNativeTarget "chumpTests" */;
+			buildConfigurationList = D44DAC19175428E800072697 /* Build configuration list for PBXNativeTarget "ChumpTests" */;
 			buildPhases = (
-				D46001B0174D778D006FFF07 /* Sources */,
-				D46001B1174D778D006FFF07 /* Frameworks */,
-				D46001B2174D778D006FFF07 /* Resources */,
-				D46001B3174D778D006FFF07 /* ShellScript */,
+				D44DABFF175428E800072697 /* Sources */,
+				D44DAC00175428E800072697 /* Frameworks */,
+				D44DAC01175428E800072697 /* Resources */,
+				D44DAC02175428E800072697 /* ShellScript */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				D46001BA174D778D006FFF07 /* PBXTargetDependency */,
+				D44DAC09175428E800072697 /* PBXTargetDependency */,
 			);
-			name = chumpTests;
-			productName = chumpTests;
-			productReference = D46001B5174D778D006FFF07 /* chumpTests.octest */;
+			name = ChumpTests;
+			productName = ChumpTests;
+			productReference = D44DAC04175428E800072697 /* ChumpTests.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		D4600199174D778D006FFF07 /* Project object */ = {
+		D44DABE8175428E800072697 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "Creeaaakk Ware LLC";
 			};
-			buildConfigurationList = D460019C174D778D006FFF07 /* Build configuration list for PBXProject "chump" */;
+			buildConfigurationList = D44DABEB175428E800072697 /* Build configuration list for PBXProject "Chump" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = D4600198174D778D006FFF07;
-			productRefGroup = D46001A2174D778D006FFF07 /* Products */;
+			mainGroup = D44DABE7175428E800072697;
+			productRefGroup = D44DABF1175428E800072697 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = D44DAC2D17542D0E00072697 /* Products */;
+					ProjectRef = D44DAC2C17542D0E00072697 /* CWUtil.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
-				D46001A0174D778D006FFF07 /* chump */,
-				D46001B4174D778D006FFF07 /* chumpTests */,
+				D44DABEF175428E800072697 /* Chump */,
+				D44DAC03175428E800072697 /* ChumpTests */,
 			);
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		D44DAC3117542D0E00072697 /* libCWUtil.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libCWUtil.a;
+			remoteRef = D44DAC3017542D0E00072697 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
 /* Begin PBXResourcesBuildPhase section */
-		D46001B2174D778D006FFF07 /* Resources */ = {
+		D44DAC01175428E800072697 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D46001C1174D778D006FFF07 /* InfoPlist.strings in Resources */,
+				D44DAC10175428E800072697 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		D46001B3174D778D006FFF07 /* ShellScript */ = {
+		D44DAC02175428E800072697 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -251,37 +285,43 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		D460019D174D778D006FFF07 /* Sources */ = {
+		D44DABEC175428E800072697 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D46001D6174D7F6D006FFF07 /* CWChunk.m in Sources */,
+				D44DAC2317542A2000072697 /* ChumpChunk.m in Sources */,
+				D44DAC2717542A3E00072697 /* ChumpChunkReader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D46001B0174D778D006FFF07 /* Sources */ = {
+		D44DABFF175428E800072697 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D46001DC174D8D89006FFF07 /* CWChunkTests.m in Sources */,
+				D44DAC2A17542B2800072697 /* ChumpChunkTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		D46001BA174D778D006FFF07 /* PBXTargetDependency */ = {
+		D44DAC09175428E800072697 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = D46001A0174D778D006FFF07 /* chump */;
-			targetProxy = D46001B9174D778D006FFF07 /* PBXContainerItemProxy */;
+			target = D44DABEF175428E800072697 /* Chump */;
+			targetProxy = D44DAC08175428E800072697 /* PBXContainerItemProxy */;
+		};
+		D44DAC3317542D6200072697 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = CWUtil;
+			targetProxy = D44DAC3217542D6200072697 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		D46001BF174D778D006FFF07 /* InfoPlist.strings */ = {
+		D44DAC0E175428E800072697 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				D46001C0174D778D006FFF07 /* en */,
+				D44DAC0F175428E800072697 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -289,7 +329,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		D46001C5174D778D006FFF07 /* Debug */ = {
+		D44DAC14175428E800072697 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -318,11 +358,12 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "";
 				SDKROOT = macosx;
 			};
 			name = Debug;
 		};
-		D46001C6174D778D006FFF07 /* Release */ = {
+		D44DAC15175428E800072697 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -344,49 +385,58 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				OTHER_LDFLAGS = "";
 				SDKROOT = macosx;
 			};
 			name = Release;
 		};
-		D46001C8174D778D006FFF07 /* Debug */ = {
+		D44DAC17175428E800072697 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "chump/chump-Prefix.pch";
+				GCC_PREFIX_HEADER = "Chump/Chump-Prefix.pch";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
 		};
-		D46001C9174D778D006FFF07 /* Release */ = {
+		D44DAC18175428E800072697 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "chump/chump-Prefix.pch";
+				GCC_PREFIX_HEADER = "Chump/Chump-Prefix.pch";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
 		};
-		D46001CB174D778D006FFF07 /* Debug */ = {
+		D44DAC1A175428E800072697 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "chump/chump-Prefix.pch";
-				INFOPLIST_FILE = "chumpTests/chumpTests-Info.plist";
+				GCC_PREFIX_HEADER = "Chump/Chump-Prefix.pch";
+				INFOPLIST_FILE = "ChumpTests/ChumpTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = octest;
 			};
 			name = Debug;
 		};
-		D46001CC174D778D006FFF07 /* Release */ = {
+		D44DAC1B175428E800072697 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "chump/chump-Prefix.pch";
-				INFOPLIST_FILE = "chumpTests/chumpTests-Info.plist";
+				GCC_PREFIX_HEADER = "Chump/Chump-Prefix.pch";
+				INFOPLIST_FILE = "ChumpTests/ChumpTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = octest;
 			};
@@ -395,32 +445,32 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		D460019C174D778D006FFF07 /* Build configuration list for PBXProject "chump" */ = {
+		D44DABEB175428E800072697 /* Build configuration list for PBXProject "Chump" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D46001C5174D778D006FFF07 /* Debug */,
-				D46001C6174D778D006FFF07 /* Release */,
+				D44DAC14175428E800072697 /* Debug */,
+				D44DAC15175428E800072697 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D46001C7174D778D006FFF07 /* Build configuration list for PBXNativeTarget "chump" */ = {
+		D44DAC16175428E800072697 /* Build configuration list for PBXNativeTarget "Chump" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D46001C8174D778D006FFF07 /* Debug */,
-				D46001C9174D778D006FFF07 /* Release */,
+				D44DAC17175428E800072697 /* Debug */,
+				D44DAC18175428E800072697 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
-		D46001CA174D778D006FFF07 /* Build configuration list for PBXNativeTarget "chumpTests" */ = {
+		D44DAC19175428E800072697 /* Build configuration list for PBXNativeTarget "ChumpTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D46001CB174D778D006FFF07 /* Debug */,
-				D46001CC174D778D006FFF07 /* Release */,
+				D44DAC1A175428E800072697 /* Debug */,
+				D44DAC1B175428E800072697 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = D4600199174D778D006FFF07 /* Project object */;
+	rootObject = D44DABE8175428E800072697 /* Project object */;
 }

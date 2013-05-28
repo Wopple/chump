@@ -25,9 +25,25 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#ifndef chump_constants_h
-#define chump_constants_h
+#import <Foundation/Foundation.h>
 
-#define PROTOCOL_VERSION (unsigned short) 0
+@interface ChumpChunk : NSObject
 
-#endif
++ (int)sizeBytes;
++ (int)sizeMask;
++ (int)maxSize;
+
+@property (strong) NSData *payload;
+
++ (id)chunkWithPayload:(NSData *)payload;
+
+- (id)init;
+
+// designated
+- (id)initWithPayload:(NSData *)payload;
+
+- (NSData *)toData;
+
++ (unsigned short)parseSize:(NSData *)payload;
+
+@end

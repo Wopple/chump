@@ -25,23 +25,5 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import <Foundation/Foundation.h>
-
-@interface CWChunk : NSObject
-
-+ (int)sizeBytes;
-+ (int)sizeMask;
-+ (int)maxSize;
-
-@property (strong) NSData *payload;
-
-- (id)init;
-
-// designated
-- (id)initWithPayload:(NSData *)payload;
-
-- (NSData *)toData;
-
-+ (unsigned short)parseSize:(NSData *)payload;
-
-@end
+#import "ChumpChunk.h"
+#import "ChumpChunkReader.h"

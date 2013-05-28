@@ -25,9 +25,9 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "CWChunk.h"
+#import "ChumpChunk.h"
 
-@implementation CWChunk
+@implementation ChumpChunk
 
 + (int)sizeBytes
 {
@@ -46,6 +46,18 @@
 
 @synthesize payload;
 
++ (id)chunkWithPayload:(NSData *)payload
+{
+    if (payload != nil)
+    {
+        return [[self alloc] initWithPayload:payload];
+    }
+    else
+    {
+        return [[self alloc] initWithPayload:[NSData dataWithBytes:nil length:0]];
+    }
+}
+
 - (id)init
 {
     return [self initWithPayload:[NSData dataWithBytes:nil length:0]];
@@ -54,10 +66,7 @@
 // designated
 - (id)initWithPayload:(NSData *)inPayload
 {
-    if (inPayload == nil)
-    {
-        [NSException raise:@"invalid nil" format:@"inPayload is nil"];
-    }
+    RAISE_IF_NIL(inPayload);
     
     if (self = [super init])
     {
@@ -74,7 +83,7 @@
     char bytes[2];
     bytes[0] = sizeBytes[1];
     bytes[1] = sizeBytes[0];
-    NSMutableData *data = [NSMutableData dataWithCapacity:payload.length + [CWChunk sizeBytes]];
+    NSMutableData *data = [NSMutableData dataWithCapacity:payload.length + [ChumpChunk sizeBytes]];
     [data appendBytes:bytes length:2];
     [data appendData:payload];
     return [data copy];
@@ -82,14 +91,11 @@
 
 + (unsigned short)parseSize:(NSData *)chunk
 {
-    if (chunk == nil)
-    {
-        [NSException raise:@"invalid nil" format:@"chunk is nil"];
-    }
+    RAISE_IF_NIL(chunk);
     
-    if (chunk.length < [CWChunk sizeBytes])
+    if (chunk.length < [ChumpChunk sizeBytes])
     {
-        [NSException raise:@"invalid length" format:@"min length = %d :: chunk.length = %d", [CWChunk sizeBytes], (int) chunk.length];
+        [NSException raise:@"invalid length" format:@"min length = %d :: chunk.length = %d", [ChumpChunk sizeBytes], (int) chunk.length];
     }
     
     char value[2];

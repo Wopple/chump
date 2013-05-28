@@ -25,18 +25,42 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import <SenTestingKit/SenTestingKit.h>
+#import "ChumpChunkTests.h"
 
-#import "CWChunk.h"
+@implementation ChumpChunkTests
 
-@interface CWChunkTests : SenTestCase
+- (void)testParseSize
+{
+    char bytes[] = {0, 2, 3, 4};
+    char tooShortBytes[] = {0};
+    NSData *chunk = [NSData dataWithBytes:bytes length:4];
+    NSData *tooShortChunk = [NSData dataWithBytes:tooShortBytes length:1];
+    STAssertEquals((unsigned short) 2, [ChumpChunk parseSize:chunk], @"");
+    STAssertThrows([ChumpChunk parseSize:nil], @"");
+    STAssertThrows([ChumpChunk parseSize:tooShortChunk], @"");
+}
 
-// class
-- (void) testParseSize;
+- (void)testInit
+{
+    ChumpChunk *chunk = [[ChumpChunk alloc] init];
+    STAssertEquals((unsigned long) 0, chunk.payload.length, @"");
+}
 
-// instance
-- (void) testInit;
-- (void) testInitWithPayload;
-- (void) testToData;
+- (void)testInitWithPayload
+{
+    char bytes[] = {0, 1, 2, 3};
+    NSData *payload = [NSData dataWithBytes:bytes length:4];
+    ChumpChunk *chunk = [[ChumpChunk alloc] initWithPayload:payload];
+    STAssertEquals(payload, chunk.payload, @"");
+}
+
+- (void)testToData
+{
+    char bytes[] = {0, 1, 2, 3};
+    char expectedBytes[] = {0, 4, 0, 1, 2, 3};
+    NSData *payload = [NSData dataWithBytes:bytes length:4];
+    ChumpChunk *chunk = [[ChumpChunk alloc] initWithPayload:payload];
+    STAssertEqualObjects([NSData dataWithBytes:expectedBytes length:6], [chunk toData], @"");
+}
 
 @end
