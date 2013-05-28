@@ -59,7 +59,7 @@
     
     if (dataReader == nil)
     {
-        dataReader = [CWDataReader readerWithInput:input num:[ChumpHeader headerBytes]];
+        dataReader = [CWDataReader readerWithInput:input num:HEADER_TOTAL_BYTES];
     }
     
     data = [dataReader read];

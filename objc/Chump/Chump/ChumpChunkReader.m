@@ -64,7 +64,7 @@
             case SIZE_NEXT:
                 if (dataReader == nil)
                 {
-                    dataReader = [CWDataReader readerWithInput:input num:2];
+                    dataReader = [CWDataReader readerWithInput:input num:CHUNK_SIZE_BYTES];
                 }
                 
                 data = [dataReader read];

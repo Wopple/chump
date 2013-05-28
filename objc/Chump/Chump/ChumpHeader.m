@@ -27,27 +27,12 @@
 
 #import "ChumpHeader.h"
 
+int const HEADER_VERSION_BYTES = 2;
+int const HEADER_MESSAGE_TYPE_BYTES = 2;
+int const HEADER_TAG_BYTES = 2;
+int const HEADER_TOTAL_BYTES = HEADER_VERSION_BYTES + HEADER_MESSAGE_TYPE_BYTES + HEADER_TAG_BYTES;
+
 @implementation ChumpHeader
-
-+ (int)versionBytes
-{
-    return 2;
-}
-
-+ (int)messageTypeBytes
-{
-    return 2;
-}
-
-+ (int)tagBytes
-{
-    return 2;
-}
-
-+ (int)headerBytes
-{
-    return [ChumpHeader versionBytes] + [ChumpHeader messageTypeBytes] + [ChumpHeader tagBytes];
-}
 
 @synthesize version;
 @synthesize messageType;
@@ -87,22 +72,22 @@
 
 - (NSUInteger)calcBytes
 {
-    return [ChumpHeader headerBytes];
+    return HEADER_TOTAL_BYTES;
 }
 
 + (short)parseVersion:(NSData *)header
 {
-    return [Help parseNetworkShort:header range:NSMakeRange(0, [ChumpHeader versionBytes])];
+    return [Help parseNetworkShort:header range:NSMakeRange(0, HEADER_VERSION_BYTES)];
 }
 
 + (short)parseMessageType:(NSData *)header
 {
-    return [Help parseNetworkShort:header range:NSMakeRange([ChumpHeader versionBytes], [ChumpHeader messageTypeBytes])];
+    return [Help parseNetworkShort:header range:NSMakeRange(HEADER_VERSION_BYTES, HEADER_MESSAGE_TYPE_BYTES)];
 }
 
 + (short)parseTag:(NSData *)header
 {
-    return [Help parseNetworkShort:header range:NSMakeRange([ChumpHeader versionBytes] + [ChumpHeader messageTypeBytes], [ChumpHeader tagBytes])];
+    return [Help parseNetworkShort:header range:NSMakeRange(HEADER_VERSION_BYTES + HEADER_MESSAGE_TYPE_BYTES, HEADER_TAG_BYTES)];
 }
 
 @end

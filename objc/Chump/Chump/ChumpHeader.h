@@ -29,12 +29,12 @@
 
 #import "Help.h"
 
-@interface ChumpHeader : NSObject
+FOUNDATION_EXPORT int const HEADER_VERSION_BYTES;
+FOUNDATION_EXPORT int const HEADER_MESSAGE_TYPE_BYTES;
+FOUNDATION_EXPORT int const HEADER_TAG_BYTES;
+FOUNDATION_EXPORT int const HEADER_TOTAL_BYTES;
 
-+ (int)versionBytes;
-+ (int)messageTypeBytes;
-+ (int)tagBytes;
-+ (int)headerBytes;
+@interface ChumpHeader : NSObject
 
 @property short version;
 @property short messageType;

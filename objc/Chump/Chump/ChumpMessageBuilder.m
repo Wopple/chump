@@ -45,7 +45,7 @@
     if (payload == nil) [self throw:@"payload"];
     
     return [ChumpMessage
-            messageWithHeader:[ChumpHeader headerWithVersion:0 messageType:[messageType shortValue] tag:[tag shortValue]]
+            messageWithHeader:[ChumpHeader headerWithVersion:CHUMP_VERSION messageType:[messageType shortValue] tag:[tag shortValue]]
             chunk:[ChumpChunk chunkWithPayload:payload]];
 }
 

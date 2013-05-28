@@ -29,11 +29,10 @@
 
 #import "Help.h"
 
-@interface ChumpChunk : NSObject
+FOUNDATION_EXPORT int const CHUNK_SIZE_BYTES;
+FOUNDATION_EXPORT int const CHUNK_MAX_SIZE;
 
-+ (int)sizeBytes;
-+ (int)sizeMask;
-+ (int)maxSize;
+@interface ChumpChunk : NSObject
 
 @property (strong) NSData *payload;
 

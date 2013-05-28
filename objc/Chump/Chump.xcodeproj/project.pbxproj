@@ -29,6 +29,8 @@
 		D44DAC451754676C00072697 /* ChumpMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = D44DAC431754676C00072697 /* ChumpMessage.m */; };
 		D44DAC481754710D00072697 /* ChumpMessageBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = D44DAC461754710D00072697 /* ChumpMessageBuilder.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D44DAC491754710D00072697 /* ChumpMessageBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = D44DAC471754710D00072697 /* ChumpMessageBuilder.m */; };
+		D44DAC4C175477BC00072697 /* Constants.h in Headers */ = {isa = PBXBuildFile; fileRef = D44DAC4A175477BC00072697 /* Constants.h */; };
+		D44DAC4D175477BC00072697 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = D44DAC4B175477BC00072697 /* Constants.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +86,8 @@
 		D44DAC431754676C00072697 /* ChumpMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChumpMessage.m; sourceTree = "<group>"; };
 		D44DAC461754710D00072697 /* ChumpMessageBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChumpMessageBuilder.h; sourceTree = "<group>"; };
 		D44DAC471754710D00072697 /* ChumpMessageBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChumpMessageBuilder.m; sourceTree = "<group>"; };
+		D44DAC4A175477BC00072697 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		D44DAC4B175477BC00072697 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +158,8 @@
 				D44DAC2C17542D0E00072697 /* CWUtil.xcodeproj */,
 				D44DABFB175428E800072697 /* Chump-Prefix.pch */,
 				D44DABFC175428E800072697 /* Chump.h */,
+				D44DAC4A175477BC00072697 /* Constants.h */,
+				D44DAC4B175477BC00072697 /* Constants.m */,
 				D44DAC3A1754437D00072697 /* Help.h */,
 				D44DAC3B1754437D00072697 /* Help.m */,
 				D44DAC2017542A2000072697 /* ChumpChunk.h */,
@@ -206,6 +212,7 @@
 				D44DAC4017544E9000072697 /* ChumpHeaderReader.h in Headers */,
 				D44DAC441754676C00072697 /* ChumpMessage.h in Headers */,
 				D44DAC481754710D00072697 /* ChumpMessageBuilder.h in Headers */,
+				D44DAC4C175477BC00072697 /* Constants.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -331,6 +338,7 @@
 				D44DAC4117544E9000072697 /* ChumpHeaderReader.m in Sources */,
 				D44DAC451754676C00072697 /* ChumpMessage.m in Sources */,
 				D44DAC491754710D00072697 /* ChumpMessageBuilder.m in Sources */,
+				D44DAC4D175477BC00072697 /* Constants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -27,22 +27,10 @@
 
 #import "ChumpChunk.h"
 
+int const CHUNK_SIZE_BYTES = 2;
+int const CHUNK_MAX_SIZE = 0xFFFF;
+
 @implementation ChumpChunk
-
-+ (int)sizeBytes
-{
-    return 2;
-}
-
-+ (int)sizeMask
-{
-    return 0xFFFF;
-}
-
-+ (int)maxSize
-{
-    return 0xFFFF;
-}
 
 @synthesize payload;
 
@@ -86,7 +74,7 @@
 
 - (NSUInteger)calcBytes
 {
-    return payload.length + [ChumpChunk sizeBytes];
+    return payload.length + CHUNK_SIZE_BYTES;
 }
 
 + (unsigned short)parseSize:(NSData *)chunk
