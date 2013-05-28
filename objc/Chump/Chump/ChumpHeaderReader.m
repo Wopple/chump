@@ -25,9 +25,9 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "ChumpChunkReader.h"
+#import "ChumpHeaderReader.h"
 
-@implementation ChumpChunkReader
+@implementation ChumpHeaderReader
 
 - (id)init
 {
@@ -42,7 +42,6 @@
     if (self = [super init])
     {
         input = inInput;
-        state = SIZE_NEXT;
         dataReader = nil;
     }
     
@@ -54,62 +53,24 @@
     [input close];
 }
 
-- (ChumpChunk *)read
+- (ChumpHeader *)read
 {
     NSData *data;
     
-    while (TRUE)
+    if (dataReader == nil)
     {
-        switch (state) {
-            case SIZE_NEXT:
-                if (dataReader == nil)
-                {
-                    dataReader = [CWDataReader readerWithInput:input num:2];
-                }
-                
-                data = [dataReader read];
-                
-                if (data != nil)
-                {
-                    chunkSize = [ChumpChunk parseSize:data];
-                    
-                    if (chunkSize == 0)
-                    {
-                        return [ChumpChunk chunkWithPayload:nil];
-                    }
-                    else
-                    {
-                        state = CHUNK_NEXT;
-                        dataReader = nil;
-                    }
-                }
-                else
-                {
-                    return nil;
-                }
-                
-                break;
-            case CHUNK_NEXT:
-                if (dataReader == nil)
-                {
-                    dataReader = [CWDataReader readerWithInput:input num:chunkSize];
-                }
-                
-                data = [dataReader read];
-                
-                if (data != nil)
-                {
-                    state = SIZE_NEXT;
-                    dataReader = nil;
-                    return [ChumpChunk chunkWithPayload:data];
-                }
-                else
-                {
-                    return nil;
-                }
-                
-                break;
-        }
+        dataReader = [CWDataReader readerWithInput:input num:[ChumpHeader headerBytes]];
+    }
+    
+    data = [dataReader read];
+    
+    if (data != nil)
+    {
+        return [ChumpHeader headerWithVersion:[ChumpHeader parseVersion:data] messageType:[ChumpHeader parseMessageType:data] tag:[ChumpHeader parseTag:data]];
+    }
+    else
+    {
+        return nil;
     }
 }
 
