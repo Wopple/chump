@@ -25,14 +25,9 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "ChumpChunkReader.h"
+#import "ChumpMessageReader.h"
 
-@implementation ChumpChunkReader
-
-+ (id)readerWithInput:(NSInputStream *)input
-{
-    return [[self alloc] initWithInput:input];
-}
+@implementation ChumpMessageReader
 
 - (id)init
 {
@@ -47,8 +42,9 @@
     if (self = [super init])
     {
         input = inInput;
-        state = SIZE_NEXT;
-        dataReader = nil;
+        state = HEADER_NEXT;
+        headerReader = nil;
+        chunkReader = nil;
     }
     
     return self;
@@ -56,37 +52,28 @@
 
 - (void)close
 {
-    [input close];
+    [headerReader close];
 }
 
-- (ChumpChunk *)read
+- (ChumpMessage *)read
 {
-    NSData *data;
+    ChumpChunk *chunk;
     
     while (TRUE)
     {
         switch (state) {
-            case SIZE_NEXT:
-                if (dataReader == nil)
+            case HEADER_NEXT:
+                if (headerReader == nil)
                 {
-                    dataReader = [CWDataReader readerWithInput:input num:CHUNK_SIZE_BYTES];
+                    headerReader = [ChumpHeaderReader readerWithInput:input];
                 }
                 
-                data = [dataReader read];
+                header = [headerReader read];
                 
-                if (data != nil)
+                if (header != nil)
                 {
-                    chunkSize = [ChumpChunk parseSize:data];
-                    
-                    if (chunkSize == 0)
-                    {
-                        return [ChumpChunk chunkWithPayload:nil];
-                    }
-                    else
-                    {
-                        state = PAYLOAD_NEXT;
-                        dataReader = nil;
-                    }
+                    state = CHUNK_NEXT;
+                    headerReader = nil;
                 }
                 else
                 {
@@ -94,19 +81,19 @@
                 }
                 
                 break;
-            case PAYLOAD_NEXT:
-                if (dataReader == nil)
+            case CHUNK_NEXT:
+                if (chunkReader == nil)
                 {
-                    dataReader = [CWDataReader readerWithInput:input num:chunkSize];
+                    chunkReader = [ChumpChunkReader readerWithInput:input];
                 }
                 
-                data = [dataReader read];
+                chunk = [chunkReader read];
                 
-                if (data != nil)
+                if (chunk != nil)
                 {
-                    state = SIZE_NEXT;
-                    dataReader = nil;
-                    return [ChumpChunk chunkWithPayload:data];
+                    state = HEADER_NEXT;
+                    chunkReader = nil;
+                    return [ChumpMessage messageWithHeader:header chunk:chunk];
                 }
                 else
                 {

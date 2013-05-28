@@ -29,6 +29,11 @@
 
 @implementation ChumpHeaderReader
 
++ (id)readerWithInput:(NSInputStream *)input
+{
+    return [[self alloc] initWithInput:input];
+}
+
 - (id)init
 {
     NO_IMPLEMENTATION;
@@ -37,7 +42,7 @@
 // designated
 - (id)initWithInput:(NSInputStream *)inInput
 {
-    RAISE_IF_NIL(input);
+    RAISE_IF_NIL(inInput);
     
     if (self = [super init])
     {

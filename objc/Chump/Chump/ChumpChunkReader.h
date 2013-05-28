@@ -34,17 +34,19 @@
 typedef enum
 {
     SIZE_NEXT,
-    CHUNK_NEXT
-} State;
+    PAYLOAD_NEXT
+} ChumpChunkReaderState;
 
 @interface ChumpChunkReader : NSObject
 {
 @private
     NSInputStream *input;
-    State state;
+    ChumpChunkReaderState state;
     CWDataReader *dataReader;
     unsigned int chunkSize;
 }
+
++ (id)readerWithInput:(NSInputStream *)input;
 
 // designated
 - (id)initWithInput:(NSInputStream *)input;

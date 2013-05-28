@@ -29,21 +29,30 @@
 
 #import <CWUtil/CWDataReader.h>
 
-#import "ChumpHeader.h"
+#import "ChumpChunkReader.h"
+#import "ChumpHeaderReader.h"
+#import "ChumpMessage.h"
 
-@interface ChumpHeaderReader : NSObject
+typedef enum
+{
+    HEADER_NEXT,
+    CHUNK_NEXT
+} ChumpMessageReaderState;
+
+@interface ChumpMessageReader : NSObject
 {
 @private
     NSInputStream *input;
-    CWDataReader *dataReader;
+    ChumpMessageReaderState state;
+    ChumpHeaderReader *headerReader;
+    ChumpChunkReader *chunkReader;
+    ChumpHeader *header;
 }
-
-+ (id)readerWithInput:(NSInputStream *)input;
 
 // designated
 - (id)initWithInput:(NSInputStream *)input;
 
 - (void)close;
-- (ChumpHeader *)read;
+- (ChumpMessage *)read;
 
 @end
