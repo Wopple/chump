@@ -56,6 +56,11 @@ int const CHUNK_MAX_SIZE = 0xFFFF;
 {
     RAISE_IF_NIL(inPayload);
     
+    if (inPayload.length > CHUNK_MAX_SIZE)
+    {
+        [NSException raise:@"illegal argument" format:@"payload size too large: %d > %d", (int) inPayload.length, CHUNK_MAX_SIZE];
+    }
+    
     if (self = [super init])
     {
         payload = inPayload;
