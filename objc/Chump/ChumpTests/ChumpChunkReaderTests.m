@@ -25,42 +25,29 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "ChumpChunkTests.h"
+#import "ChumpChunkReaderTests.h"
 
-@implementation ChumpChunkTests
-
-- (void)testParseSize
-{
-    uint8_t bytes[] = {0, 2, 3, 4};
-    uint8_t tooShortBytes[] = {0};
-    NSData *chunk = [NSData dataWithBytes:bytes length:4];
-    NSData *tooShortChunk = [NSData dataWithBytes:tooShortBytes length:1];
-    STAssertEquals((unsigned short) 2, [ChumpChunk parseSize:chunk], nil);
-    STAssertThrows([ChumpChunk parseSize:nil], nil);
-    STAssertThrows([ChumpChunk parseSize:tooShortChunk], nil);
-}
+@implementation ChumpChunkReaderTests
 
 - (void)testInit
 {
-    ChumpChunk *chunk = [[ChumpChunk alloc] init];
-    STAssertEquals((unsigned long) 0, chunk.payload.length, nil);
+    uint8_t bytes[] = {0, 2, 1, 3};
+    NSData * data = [NSData dataWithBytes:bytes length:4];
+    STAssertThrows([[[ChumpChunkReader alloc] init] class], nil);
+    STAssertThrows([[[ChumpChunkReader alloc] initWithInput:nil] class], nil);
+    STAssertNoThrow([[[ChumpChunkReader alloc] initWithInput:[NSInputStream inputStreamWithData:data]] class], nil);
 }
 
-- (void)testInitWithPayload
+- (void)testRead
 {
-    uint8_t bytes[] = {0, 1, 2, 3};
-    NSData *payload = [NSData dataWithBytes:bytes length:4];
-    ChumpChunk *chunk = [[ChumpChunk alloc] initWithPayload:payload];
-    STAssertEquals(payload, chunk.payload, nil);
-}
-
-- (void)testToData
-{
-    uint8_t bytes[] = {0, 1, 2, 3};
-    uint8_t expectedBytes[] = {0, 4, 0, 1, 2, 3};
-    NSData *payload = [NSData dataWithBytes:bytes length:4];
-    ChumpChunk *chunk = [[ChumpChunk alloc] initWithPayload:payload];
-    STAssertEqualObjects([NSData dataWithBytes:expectedBytes length:6], [chunk toData], nil);
+    uint8_t bytes[] = {0, 2, 1, 3};
+    NSInputStream *input = [NSInputStream inputStreamWithData:[NSData dataWithBytes:bytes length:4]];
+    [input open];
+    ChumpChunkReader *reader = [ChumpChunkReader readerWithInput:input];
+    ChumpChunk *chunk = [reader read];
+    STAssertNotNil(chunk, nil);
+    uint8_t expectedBytes[] = {1, 3};
+    STAssertEqualObjects([NSData dataWithBytes:expectedBytes length:2], chunk.payload, nil);
 }
 
 @end

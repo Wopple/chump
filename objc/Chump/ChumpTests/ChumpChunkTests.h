@@ -32,11 +32,11 @@
 @interface ChumpChunkTests : SenTestCase
 
 // class
-- (void) testParseSize;
+- (void)testParseSize;
 
 // instance
-- (void) testInit;
-- (void) testInitWithPayload;
-- (void) testToData;
+- (void)testInit;
+- (void)testInitWithPayload;
+- (void)testToData;
 
 @end

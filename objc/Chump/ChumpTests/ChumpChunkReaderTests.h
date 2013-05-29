@@ -25,42 +25,14 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "ChumpChunkTests.h"
+#import <SenTestingKit/SenTestingKit.h>
 
-@implementation ChumpChunkTests
+#import "ChumpChunk.h"
+#import "ChumpChunkReader.h"
 
-- (void)testParseSize
-{
-    uint8_t bytes[] = {0, 2, 3, 4};
-    uint8_t tooShortBytes[] = {0};
-    NSData *chunk = [NSData dataWithBytes:bytes length:4];
-    NSData *tooShortChunk = [NSData dataWithBytes:tooShortBytes length:1];
-    STAssertEquals((unsigned short) 2, [ChumpChunk parseSize:chunk], nil);
-    STAssertThrows([ChumpChunk parseSize:nil], nil);
-    STAssertThrows([ChumpChunk parseSize:tooShortChunk], nil);
-}
+@interface ChumpChunkReaderTests : SenTestCase
 
-- (void)testInit
-{
-    ChumpChunk *chunk = [[ChumpChunk alloc] init];
-    STAssertEquals((unsigned long) 0, chunk.payload.length, nil);
-}
-
-- (void)testInitWithPayload
-{
-    uint8_t bytes[] = {0, 1, 2, 3};
-    NSData *payload = [NSData dataWithBytes:bytes length:4];
-    ChumpChunk *chunk = [[ChumpChunk alloc] initWithPayload:payload];
-    STAssertEquals(payload, chunk.payload, nil);
-}
-
-- (void)testToData
-{
-    uint8_t bytes[] = {0, 1, 2, 3};
-    uint8_t expectedBytes[] = {0, 4, 0, 1, 2, 3};
-    NSData *payload = [NSData dataWithBytes:bytes length:4];
-    ChumpChunk *chunk = [[ChumpChunk alloc] initWithPayload:payload];
-    STAssertEqualObjects([NSData dataWithBytes:expectedBytes length:6], [chunk toData], nil);
-}
+- (void)testInit;
+- (void)testRead;
 
 @end

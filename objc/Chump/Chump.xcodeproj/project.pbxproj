@@ -33,6 +33,8 @@
 		D44DAC4D175477BC00072697 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = D44DAC4B175477BC00072697 /* Constants.m */; };
 		D44DAC5017547F7700072697 /* ChumpMessageReader.h in Headers */ = {isa = PBXBuildFile; fileRef = D44DAC4E17547F7700072697 /* ChumpMessageReader.h */; };
 		D44DAC5117547F7700072697 /* ChumpMessageReader.m in Sources */ = {isa = PBXBuildFile; fileRef = D44DAC4F17547F7700072697 /* ChumpMessageReader.m */; };
+		D4F1C9751756A0DA009A6D68 /* ChumpChunkReaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F1C9741756A0DA009A6D68 /* ChumpChunkReaderTests.m */; };
+		D4F1C97A1756C3B2009A6D68 /* ChumpHeaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F1C9791756C3B2009A6D68 /* ChumpHeaderTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +94,10 @@
 		D44DAC4B175477BC00072697 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		D44DAC4E17547F7700072697 /* ChumpMessageReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChumpMessageReader.h; sourceTree = "<group>"; };
 		D44DAC4F17547F7700072697 /* ChumpMessageReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChumpMessageReader.m; sourceTree = "<group>"; };
+		D4F1C9731756A0DA009A6D68 /* ChumpChunkReaderTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChumpChunkReaderTests.h; sourceTree = "<group>"; };
+		D4F1C9741756A0DA009A6D68 /* ChumpChunkReaderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChumpChunkReaderTests.m; sourceTree = "<group>"; };
+		D4F1C9781756C3B1009A6D68 /* ChumpHeaderTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChumpHeaderTests.h; sourceTree = "<group>"; };
+		D4F1C9791756C3B2009A6D68 /* ChumpHeaderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChumpHeaderTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +197,10 @@
 				D44DAC0E175428E800072697 /* InfoPlist.strings */,
 				D44DAC2817542B2800072697 /* ChumpChunkTests.h */,
 				D44DAC2917542B2800072697 /* ChumpChunkTests.m */,
+				D4F1C9731756A0DA009A6D68 /* ChumpChunkReaderTests.h */,
+				D4F1C9741756A0DA009A6D68 /* ChumpChunkReaderTests.m */,
+				D4F1C9781756C3B1009A6D68 /* ChumpHeaderTests.h */,
+				D4F1C9791756C3B2009A6D68 /* ChumpHeaderTests.m */,
 			);
 			path = ChumpTests;
 			sourceTree = "<group>";
@@ -355,6 +365,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D44DAC2A17542B2800072697 /* ChumpChunkTests.m in Sources */,
+				D4F1C9751756A0DA009A6D68 /* ChumpChunkReaderTests.m in Sources */,
+				D4F1C97A1756C3B2009A6D68 /* ChumpHeaderTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
