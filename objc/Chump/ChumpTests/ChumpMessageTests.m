@@ -25,33 +25,35 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "ChumpChunkReaderTests.h"
+#import "ChumpMessageTests.h"
 
-@implementation ChumpChunkReaderTests
+@implementation ChumpMessageTests
 
 - (void)testInit
 {
-    STAssertThrows([[[ChumpChunkReader alloc] init] class], nil);
+    STAssertThrows([[[ChumpMessage alloc] init] class], nil);
 }
 
-- (void)testInitWithInput
+- (void)testInitWithHeader
 {
-    uint8_t bytes[] = {0, 2, 1, 3};
-    NSData * data = [NSData dataWithBytes:bytes length:4];
-    STAssertThrows([[[ChumpChunkReader alloc] initWithInput:nil] class], nil);
-    STAssertNoThrow([[[ChumpChunkReader alloc] initWithInput:[NSInputStream inputStreamWithData:data]] class], nil);
+    ChumpHeader *header = [ChumpHeader headerWithVersion:0 messageType:1 tag:2];
+    uint8_t bytes[] = {3, 4, 5, 6};
+    ChumpChunk *chunk = [ChumpChunk chunkWithPayload:[NSData dataWithBytes:bytes length:4]];
+    STAssertNoThrow([[[ChumpMessage alloc] initWithHeader:header chunk:chunk] class], nil);
+    STAssertThrows([[[ChumpMessage alloc] initWithHeader:nil chunk:chunk] class], nil);
+    STAssertThrows([[[ChumpMessage alloc] initWithHeader:header chunk:nil] class], nil);
 }
 
-- (void)testRead
+- (void)testToData
 {
-    uint8_t bytes[] = {0, 2, 1, 3};
-    NSInputStream *input = [NSInputStream inputStreamWithData:[NSData dataWithBytes:bytes length:4]];
-    [input open];
-    ChumpChunkReader *reader = [ChumpChunkReader readerWithInput:input];
-    ChumpChunk *chunk = [reader read];
-    STAssertNotNil(chunk, nil);
-    uint8_t expectedBytes[] = {1, 3};
-    STAssertEqualObjects([NSData dataWithBytes:expectedBytes length:2], chunk.payload, nil);
+    ChumpHeader *header = [ChumpHeader headerWithVersion:0 messageType:1 tag:2];
+    uint8_t chunkBytes[] = {3, 4, 5, 6};
+    ChumpChunk *chunk = [ChumpChunk chunkWithPayload:[NSData dataWithBytes:chunkBytes length:4]];
+    ChumpMessage *message = [ChumpMessage messageWithHeader:header chunk:chunk];
+    STAssertNotNil(message, nil);
+    uint8_t dataBytes[] = {0, 0, 0, 1, 0, 2, 0, 4, 3, 4, 5, 6};
+    NSData *data = [NSData dataWithBytes:dataBytes length:12];
+    STAssertEqualObjects(data, [message toData], nil);
 }
 
 @end

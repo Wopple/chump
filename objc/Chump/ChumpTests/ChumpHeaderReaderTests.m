@@ -25,33 +25,34 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "ChumpChunkReaderTests.h"
+#import "ChumpHeaderReaderTests.h"
 
-@implementation ChumpChunkReaderTests
+@implementation ChumpHeaderReaderTests
 
 - (void)testInit
 {
-    STAssertThrows([[[ChumpChunkReader alloc] init] class], nil);
+    STAssertThrows([[[ChumpHeaderReader alloc] init] class], nil);
 }
 
 - (void)testInitWithInput
 {
-    uint8_t bytes[] = {0, 2, 1, 3};
-    NSData * data = [NSData dataWithBytes:bytes length:4];
-    STAssertThrows([[[ChumpChunkReader alloc] initWithInput:nil] class], nil);
-    STAssertNoThrow([[[ChumpChunkReader alloc] initWithInput:[NSInputStream inputStreamWithData:data]] class], nil);
+    uint8_t bytes[] = {0, 0, 0, 1, 0, 2};
+    NSData * data = [NSData dataWithBytes:bytes length:6];
+    STAssertThrows([[[ChumpHeaderReader alloc] initWithInput:nil] class], nil);
+    STAssertNoThrow([[[ChumpHeaderReader alloc] initWithInput:[NSInputStream inputStreamWithData:data]] class], nil);
 }
 
 - (void)testRead
 {
-    uint8_t bytes[] = {0, 2, 1, 3};
-    NSInputStream *input = [NSInputStream inputStreamWithData:[NSData dataWithBytes:bytes length:4]];
+    uint8_t bytes[] = {0, 0, 0, 1, 0, 2};
+    NSInputStream *input = [NSInputStream inputStreamWithData:[NSData dataWithBytes:bytes length:6]];
     [input open];
-    ChumpChunkReader *reader = [ChumpChunkReader readerWithInput:input];
-    ChumpChunk *chunk = [reader read];
-    STAssertNotNil(chunk, nil);
-    uint8_t expectedBytes[] = {1, 3};
-    STAssertEqualObjects([NSData dataWithBytes:expectedBytes length:2], chunk.payload, nil);
+    ChumpHeaderReader *reader = [ChumpHeaderReader readerWithInput:input];
+    ChumpHeader *header = [reader read];
+    STAssertNotNil(header, nil);
+    STAssertEquals((short) 0, header.version, nil);
+    STAssertEquals((short) 1, header.messageType, nil);
+    STAssertEquals((short) 2, header.tag, nil);
 }
 
 @end

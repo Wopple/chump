@@ -25,33 +25,16 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "ChumpChunkReaderTests.h"
+#import <SenTestingKit/SenTestingKit.h>
 
-@implementation ChumpChunkReaderTests
+#import "ChumpChunk.h"
+#import "ChumpHeader.h"
+#import "ChumpMessage.h"
 
-- (void)testInit
-{
-    STAssertThrows([[[ChumpChunkReader alloc] init] class], nil);
-}
+@interface ChumpMessageTests : SenTestCase
 
-- (void)testInitWithInput
-{
-    uint8_t bytes[] = {0, 2, 1, 3};
-    NSData * data = [NSData dataWithBytes:bytes length:4];
-    STAssertThrows([[[ChumpChunkReader alloc] initWithInput:nil] class], nil);
-    STAssertNoThrow([[[ChumpChunkReader alloc] initWithInput:[NSInputStream inputStreamWithData:data]] class], nil);
-}
-
-- (void)testRead
-{
-    uint8_t bytes[] = {0, 2, 1, 3};
-    NSInputStream *input = [NSInputStream inputStreamWithData:[NSData dataWithBytes:bytes length:4]];
-    [input open];
-    ChumpChunkReader *reader = [ChumpChunkReader readerWithInput:input];
-    ChumpChunk *chunk = [reader read];
-    STAssertNotNil(chunk, nil);
-    uint8_t expectedBytes[] = {1, 3};
-    STAssertEqualObjects([NSData dataWithBytes:expectedBytes length:2], chunk.payload, nil);
-}
+- (void)testInit;
+- (void)testInitWithHeader;
+- (void)testToData;
 
 @end

@@ -27,3 +27,8 @@
 
 #import "ChumpChunk.h"
 #import "ChumpChunkReader.h"
+#import "ChumpHeader.h"
+#import "ChumpHeaderReader.h"
+#import "ChumpMessage.h"
+#import "ChumpMessageBuilder.h"
+#import "ChumpMessageReader.h"

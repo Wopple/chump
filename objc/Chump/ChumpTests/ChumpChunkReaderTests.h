@@ -33,6 +33,7 @@
 @interface ChumpChunkReaderTests : SenTestCase
 
 - (void)testInit;
+- (void)testInitWithInput;
 - (void)testRead;
 
 @end
