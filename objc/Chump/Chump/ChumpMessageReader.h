@@ -49,6 +49,8 @@ typedef enum
     ChumpHeader *header;
 }
 
++ (id)readerWithInput:(NSInputStream *)input;
+
 // designated
 - (id)initWithInput:(NSInputStream *)input;
 

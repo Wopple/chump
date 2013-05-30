@@ -48,6 +48,7 @@
     NSInputStream *input = [NSInputStream inputStreamWithData:[NSData dataWithBytes:bytes length:4]];
     [input open];
     ChumpChunkReader *reader = [ChumpChunkReader readerWithInput:input];
+    STAssertNotNil(reader, nil);
     ChumpChunk *chunk = [reader read];
     STAssertNotNil(chunk, nil);
     uint8_t expectedBytes[] = {1, 3};

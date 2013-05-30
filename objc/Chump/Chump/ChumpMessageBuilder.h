@@ -38,6 +38,8 @@
 @property (strong) NSNumber *tag;
 @property (strong) NSData *payload;
 
++ (id)builder;
+
 - (ChumpMessage *)build;
 
 @end

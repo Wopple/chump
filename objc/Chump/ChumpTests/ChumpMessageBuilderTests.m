@@ -25,35 +25,39 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "ChumpHeaderReaderTests.h"
+#import "ChumpMessageBuilderTests.h"
 
-@implementation ChumpHeaderReaderTests
+@implementation ChumpMessageBuilderTests
 
-- (void)testInit
+- (void)testBiuld
 {
-    STAssertThrows([[[ChumpHeaderReader alloc] init] class], nil);
-}
-
-- (void)testInitWithInput
-{
-    uint8_t bytes[] = {0, 0, 0, 1, 0, 2};
-    NSData * data = [NSData dataWithBytes:bytes length:6];
-    STAssertThrows([[[ChumpHeaderReader alloc] initWithInput:nil] class], nil);
-    STAssertNoThrow([[[ChumpHeaderReader alloc] initWithInput:[NSInputStream inputStreamWithData:data]] class], nil);
-}
-
-- (void)testRead
-{
-    uint8_t bytes[] = {0, 0, 0, 1, 0, 2};
-    NSInputStream *input = [NSInputStream inputStreamWithData:[NSData dataWithBytes:bytes length:6]];
-    [input open];
-    ChumpHeaderReader *reader = [ChumpHeaderReader readerWithInput:input];
-    STAssertNotNil(reader, nil);
-    ChumpHeader *header = [reader read];
-    STAssertNotNil(header, nil);
-    STAssertEquals((short) 0, header.version, nil);
-    STAssertEquals((short) 1, header.messageType, nil);
-    STAssertEquals((short) 2, header.tag, nil);
+    NSNumber *messageType = [NSNumber numberWithShort:1];
+    NSNumber *tag = [NSNumber numberWithShort:2];
+    uint8_t bytes[] = {3, 4};
+    NSData *payload = [NSData dataWithBytes:bytes length:2];
+    ChumpMessageBuilder *builder;
+    
+    builder = [ChumpMessageBuilder builder];
+    builder.messageType = messageType;
+    builder.payload = payload;
+    STAssertThrows([builder build], nil);
+    
+    builder = [ChumpMessageBuilder builder];
+    builder.tag = tag;
+    builder.payload = payload;
+    STAssertThrows([builder build], nil);
+    
+    builder = [ChumpMessageBuilder builder];
+    builder.messageType = messageType;
+    builder.tag = tag;
+    STAssertThrows([builder build], nil);
+    
+    builder = [ChumpMessageBuilder builder];
+    builder.messageType = messageType;
+    builder.tag = tag;
+    builder.payload = payload;
+    ChumpMessage *message = [builder build];
+    STAssertNotNil(message, nil);
 }
 
 @end

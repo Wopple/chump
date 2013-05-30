@@ -29,6 +29,11 @@
 
 @implementation ChumpMessageReader
 
++ (id)readerWithInput:(NSInputStream *)input
+{
+    return [[self alloc] initWithInput:input];
+}
+
 - (id)init
 {
     NO_IMPLEMENTATION;

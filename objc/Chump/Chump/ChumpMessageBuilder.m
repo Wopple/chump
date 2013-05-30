@@ -33,6 +33,11 @@
 @synthesize tag;
 @synthesize payload;
 
++ (id)builder
+{
+    return [[self alloc] init];
+}
+
 - (void)throw:(NSString *)field
 {
     [NSException raise:@"incomplete ChumpMessageBuilder" format:@"missing: %@", field];
