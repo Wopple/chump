@@ -20,7 +20,7 @@ version 0
 CHUMP is designed to be a language independent protocol.
 
 1. Java
-2. Objective-C (in progress)
+2. Objective-C
 
 ## Origin
 ---------
