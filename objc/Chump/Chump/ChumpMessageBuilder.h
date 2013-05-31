@@ -34,9 +34,9 @@
 
 @interface ChumpMessageBuilder : NSObject
 
-@property (strong) NSNumber *messageType;
-@property (strong) NSNumber *tag;
-@property (strong) NSData *payload;
+@property (strong, nonatomic) NSNumber *messageType;
+@property (strong, nonatomic) NSNumber *tag;
+@property (strong, nonatomic) NSData *payload;
 
 + (id)builder;
 

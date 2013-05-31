@@ -34,10 +34,6 @@ int const HEADER_TOTAL_BYTES = HEADER_VERSION_BYTES + HEADER_MESSAGE_TYPE_BYTES 
 
 @implementation ChumpHeader
 
-@synthesize version;
-@synthesize messageType;
-@synthesize tag;
-
 + (id)headerWithVersion:(short)version messageType:(short)messageType tag:(short)tag
 {
     return [[self alloc] initWithVersion:version messageType:messageType tag:tag];
@@ -73,6 +69,21 @@ int const HEADER_TOTAL_BYTES = HEADER_VERSION_BYTES + HEADER_MESSAGE_TYPE_BYTES 
 - (NSUInteger)calcBytes
 {
     return HEADER_TOTAL_BYTES;
+}
+
+- (short)version
+{
+    return version;
+}
+
+- (short)messageType
+{
+    return messageType;
+}
+
+- (short)tag
+{
+    return tag;
 }
 
 + (short)parseVersion:(NSData *)header
