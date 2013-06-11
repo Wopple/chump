@@ -64,9 +64,9 @@ int const HEADER_TOTAL_BYTES = HEADER_VERSION_BYTES + HEADER_MESSAGE_TYPE_BYTES 
 - (NSData *)toData
 {
     NSMutableData *data = [NSMutableData dataWithCapacity:[self calcBytes]];
-    [data appendData:[Help flipShortAsData:self.version]];
-    [data appendData:[Help flipShortAsData:self.messageType]];
-    [data appendData:[Help flipShortAsData:self.tag]];
+    [data appendData:[ChumpHelp flipShortAsData:self.version]];
+    [data appendData:[ChumpHelp flipShortAsData:self.messageType]];
+    [data appendData:[ChumpHelp flipShortAsData:self.tag]];
     return [data copy];
 }
 
@@ -77,17 +77,17 @@ int const HEADER_TOTAL_BYTES = HEADER_VERSION_BYTES + HEADER_MESSAGE_TYPE_BYTES 
 
 + (short)parseVersion:(NSData *)header
 {
-    return [Help parseNetworkShort:header range:NSMakeRange(0, HEADER_VERSION_BYTES)];
+    return [ChumpHelp parseNetworkShort:header range:NSMakeRange(0, HEADER_VERSION_BYTES)];
 }
 
 + (short)parseMessageType:(NSData *)header
 {
-    return [Help parseNetworkShort:header range:NSMakeRange(HEADER_VERSION_BYTES, HEADER_MESSAGE_TYPE_BYTES)];
+    return [ChumpHelp parseNetworkShort:header range:NSMakeRange(HEADER_VERSION_BYTES, HEADER_MESSAGE_TYPE_BYTES)];
 }
 
 + (short)parseTag:(NSData *)header
 {
-    return [Help parseNetworkShort:header range:NSMakeRange(HEADER_VERSION_BYTES + HEADER_MESSAGE_TYPE_BYTES, HEADER_TAG_BYTES)];
+    return [ChumpHelp parseNetworkShort:header range:NSMakeRange(HEADER_VERSION_BYTES + HEADER_MESSAGE_TYPE_BYTES, HEADER_TAG_BYTES)];
 }
 
 @end

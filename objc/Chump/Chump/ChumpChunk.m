@@ -72,7 +72,7 @@ int const CHUNK_MAX_SIZE = 0xFFFF;
 - (NSData *)toData
 {
     NSMutableData *data = [NSMutableData dataWithCapacity:[self calcBytes]];
-    [data appendData:[Help flipShortAsData:payload.length]];
+    [data appendData:[ChumpHelp flipShortAsData:payload.length]];
     [data appendData:payload];
     return [data copy];
 }
@@ -84,7 +84,7 @@ int const CHUNK_MAX_SIZE = 0xFFFF;
 
 + (unsigned short)parseSize:(NSData *)chunk
 {
-    return (unsigned short) [Help parseNetworkShort:chunk range:NSMakeRange(0, 2)];
+    return (unsigned short) [ChumpHelp parseNetworkShort:chunk range:NSMakeRange(0, 2)];
 }
 
 @end

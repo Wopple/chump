@@ -18,21 +18,22 @@
 		D44DAC2717542A3E00072697 /* ChumpChunkReader.m in Sources */ = {isa = PBXBuildFile; fileRef = D44DAC2517542A3E00072697 /* ChumpChunkReader.m */; };
 		D44DAC2A17542B2800072697 /* ChumpChunkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D44DAC2917542B2800072697 /* ChumpChunkTests.m */; };
 		D44DAC2B17542B7900072697 /* Chump.h in Headers */ = {isa = PBXBuildFile; fileRef = D44DABFC175428E800072697 /* Chump.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D44DAC3417542DAF00072697 /* libCWUtil.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D44DAC3117542D0E00072697 /* libCWUtil.a */; };
 		D44DAC3817543C2900072697 /* ChumpHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = D44DAC3617543C2900072697 /* ChumpHeader.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D44DAC3917543C2900072697 /* ChumpHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = D44DAC3717543C2900072697 /* ChumpHeader.m */; };
-		D44DAC3C1754437D00072697 /* Help.h in Headers */ = {isa = PBXBuildFile; fileRef = D44DAC3A1754437D00072697 /* Help.h */; };
-		D44DAC3D1754437D00072697 /* Help.m in Sources */ = {isa = PBXBuildFile; fileRef = D44DAC3B1754437D00072697 /* Help.m */; };
+		D44DAC3C1754437D00072697 /* ChumpHelp.h in Headers */ = {isa = PBXBuildFile; fileRef = D44DAC3A1754437D00072697 /* ChumpHelp.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D44DAC3D1754437D00072697 /* ChumpHelp.m in Sources */ = {isa = PBXBuildFile; fileRef = D44DAC3B1754437D00072697 /* ChumpHelp.m */; };
 		D44DAC4017544E9000072697 /* ChumpHeaderReader.h in Headers */ = {isa = PBXBuildFile; fileRef = D44DAC3E17544E9000072697 /* ChumpHeaderReader.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D44DAC4117544E9000072697 /* ChumpHeaderReader.m in Sources */ = {isa = PBXBuildFile; fileRef = D44DAC3F17544E9000072697 /* ChumpHeaderReader.m */; };
 		D44DAC441754676C00072697 /* ChumpMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = D44DAC421754676C00072697 /* ChumpMessage.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D44DAC451754676C00072697 /* ChumpMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = D44DAC431754676C00072697 /* ChumpMessage.m */; };
 		D44DAC481754710D00072697 /* ChumpMessageBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = D44DAC461754710D00072697 /* ChumpMessageBuilder.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D44DAC491754710D00072697 /* ChumpMessageBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = D44DAC471754710D00072697 /* ChumpMessageBuilder.m */; };
-		D44DAC4C175477BC00072697 /* Constants.h in Headers */ = {isa = PBXBuildFile; fileRef = D44DAC4A175477BC00072697 /* Constants.h */; };
-		D44DAC4D175477BC00072697 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = D44DAC4B175477BC00072697 /* Constants.m */; };
+		D44DAC4C175477BC00072697 /* ChumpConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = D44DAC4A175477BC00072697 /* ChumpConstants.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D44DAC4D175477BC00072697 /* ChumpConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = D44DAC4B175477BC00072697 /* ChumpConstants.m */; };
 		D44DAC5017547F7700072697 /* ChumpMessageReader.h in Headers */ = {isa = PBXBuildFile; fileRef = D44DAC4E17547F7700072697 /* ChumpMessageReader.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D44DAC5117547F7700072697 /* ChumpMessageReader.m in Sources */ = {isa = PBXBuildFile; fileRef = D44DAC4F17547F7700072697 /* ChumpMessageReader.m */; };
+		D4AEA59A1767CC4200ED2ECB /* ChumpDataReader.h in Headers */ = {isa = PBXBuildFile; fileRef = D4AEA5981767CC4200ED2ECB /* ChumpDataReader.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D4AEA59B1767CC4200ED2ECB /* ChumpDataReader.m in Sources */ = {isa = PBXBuildFile; fileRef = D4AEA5991767CC4200ED2ECB /* ChumpDataReader.m */; };
 		D4F1C9751756A0DA009A6D68 /* ChumpChunkReaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F1C9741756A0DA009A6D68 /* ChumpChunkReaderTests.m */; };
 		D4F1C97A1756C3B2009A6D68 /* ChumpHeaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F1C9791756C3B2009A6D68 /* ChumpHeaderTests.m */; };
 		D4F1C97D1756CBDE009A6D68 /* ChumpHeaderReaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F1C97C1756CBDE009A6D68 /* ChumpHeaderReaderTests.m */; };
@@ -48,20 +49,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = D44DABEF175428E800072697;
 			remoteInfo = Chump;
-		};
-		D44DAC3017542D0E00072697 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D44DAC2C17542D0E00072697 /* CWUtil.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = D44DABCE1754241D00072697;
-			remoteInfo = CWUtil;
-		};
-		D44DAC3217542D6200072697 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D44DAC2C17542D0E00072697 /* CWUtil.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = D44DABCD1754241D00072697;
-			remoteInfo = CWUtil;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -83,21 +70,22 @@
 		D44DAC2517542A3E00072697 /* ChumpChunkReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChumpChunkReader.m; sourceTree = "<group>"; };
 		D44DAC2817542B2800072697 /* ChumpChunkTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChumpChunkTests.h; sourceTree = "<group>"; };
 		D44DAC2917542B2800072697 /* ChumpChunkTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChumpChunkTests.m; sourceTree = "<group>"; };
-		D44DAC2C17542D0E00072697 /* CWUtil.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CWUtil.xcodeproj; path = CWUtil/CWUtil/CWUtil.xcodeproj; sourceTree = SOURCE_ROOT; };
 		D44DAC3617543C2900072697 /* ChumpHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChumpHeader.h; sourceTree = "<group>"; };
 		D44DAC3717543C2900072697 /* ChumpHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChumpHeader.m; sourceTree = "<group>"; };
-		D44DAC3A1754437D00072697 /* Help.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Help.h; sourceTree = "<group>"; };
-		D44DAC3B1754437D00072697 /* Help.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Help.m; sourceTree = "<group>"; };
+		D44DAC3A1754437D00072697 /* ChumpHelp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChumpHelp.h; sourceTree = "<group>"; };
+		D44DAC3B1754437D00072697 /* ChumpHelp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChumpHelp.m; sourceTree = "<group>"; };
 		D44DAC3E17544E9000072697 /* ChumpHeaderReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChumpHeaderReader.h; sourceTree = "<group>"; };
 		D44DAC3F17544E9000072697 /* ChumpHeaderReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChumpHeaderReader.m; sourceTree = "<group>"; };
 		D44DAC421754676C00072697 /* ChumpMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChumpMessage.h; sourceTree = "<group>"; };
 		D44DAC431754676C00072697 /* ChumpMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChumpMessage.m; sourceTree = "<group>"; };
 		D44DAC461754710D00072697 /* ChumpMessageBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChumpMessageBuilder.h; sourceTree = "<group>"; };
 		D44DAC471754710D00072697 /* ChumpMessageBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChumpMessageBuilder.m; sourceTree = "<group>"; };
-		D44DAC4A175477BC00072697 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
-		D44DAC4B175477BC00072697 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		D44DAC4A175477BC00072697 /* ChumpConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChumpConstants.h; sourceTree = "<group>"; };
+		D44DAC4B175477BC00072697 /* ChumpConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChumpConstants.m; sourceTree = "<group>"; };
 		D44DAC4E17547F7700072697 /* ChumpMessageReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChumpMessageReader.h; sourceTree = "<group>"; };
 		D44DAC4F17547F7700072697 /* ChumpMessageReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChumpMessageReader.m; sourceTree = "<group>"; };
+		D4AEA5981767CC4200ED2ECB /* ChumpDataReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChumpDataReader.h; sourceTree = "<group>"; };
+		D4AEA5991767CC4200ED2ECB /* ChumpDataReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChumpDataReader.m; sourceTree = "<group>"; };
 		D4F1C9731756A0DA009A6D68 /* ChumpChunkReaderTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChumpChunkReaderTests.h; sourceTree = "<group>"; };
 		D4F1C9741756A0DA009A6D68 /* ChumpChunkReaderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChumpChunkReaderTests.m; sourceTree = "<group>"; };
 		D4F1C9781756C3B1009A6D68 /* ChumpHeaderTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChumpHeaderTests.h; sourceTree = "<group>"; };
@@ -117,7 +105,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D44DAC3417542DAF00072697 /* libCWUtil.a in Frameworks */,
 				D44DABF4175428E800072697 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -177,13 +164,14 @@
 		D44DABF9175428E800072697 /* Chump */ = {
 			isa = PBXGroup;
 			children = (
-				D44DAC2C17542D0E00072697 /* CWUtil.xcodeproj */,
 				D44DABFB175428E800072697 /* Chump-Prefix.pch */,
 				D44DABFC175428E800072697 /* Chump.h */,
-				D44DAC4A175477BC00072697 /* Constants.h */,
-				D44DAC4B175477BC00072697 /* Constants.m */,
-				D44DAC3A1754437D00072697 /* Help.h */,
-				D44DAC3B1754437D00072697 /* Help.m */,
+				D44DAC4A175477BC00072697 /* ChumpConstants.h */,
+				D44DAC4B175477BC00072697 /* ChumpConstants.m */,
+				D44DAC3A1754437D00072697 /* ChumpHelp.h */,
+				D44DAC3B1754437D00072697 /* ChumpHelp.m */,
+				D4AEA5981767CC4200ED2ECB /* ChumpDataReader.h */,
+				D4AEA5991767CC4200ED2ECB /* ChumpDataReader.m */,
 				D44DAC2017542A2000072697 /* ChumpChunk.h */,
 				D44DAC2117542A2000072697 /* ChumpChunk.m */,
 				D44DAC2417542A3E00072697 /* ChumpChunkReader.h */,
@@ -225,14 +213,6 @@
 			path = ChumpTests;
 			sourceTree = "<group>";
 		};
-		D44DAC2D17542D0E00072697 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				D44DAC3117542D0E00072697 /* libCWUtil.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -244,12 +224,13 @@
 				D44DAC2617542A3E00072697 /* ChumpChunkReader.h in Headers */,
 				D44DAC2B17542B7900072697 /* Chump.h in Headers */,
 				D44DAC3817543C2900072697 /* ChumpHeader.h in Headers */,
-				D44DAC3C1754437D00072697 /* Help.h in Headers */,
+				D44DAC3C1754437D00072697 /* ChumpHelp.h in Headers */,
 				D44DAC4017544E9000072697 /* ChumpHeaderReader.h in Headers */,
 				D44DAC441754676C00072697 /* ChumpMessage.h in Headers */,
 				D44DAC481754710D00072697 /* ChumpMessageBuilder.h in Headers */,
-				D44DAC4C175477BC00072697 /* Constants.h in Headers */,
+				D44DAC4C175477BC00072697 /* ChumpConstants.h in Headers */,
 				D44DAC5017547F7700072697 /* ChumpMessageReader.h in Headers */,
+				D4AEA59A1767CC4200ED2ECB /* ChumpDataReader.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,7 +248,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				D44DAC3317542D6200072697 /* PBXTargetDependency */,
 			);
 			name = Chump;
 			productName = Chump;
@@ -312,12 +292,6 @@
 			mainGroup = D44DABE7175428E800072697;
 			productRefGroup = D44DABF1175428E800072697 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = D44DAC2D17542D0E00072697 /* Products */;
-					ProjectRef = D44DAC2C17542D0E00072697 /* CWUtil.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				D44DABEF175428E800072697 /* Chump */,
@@ -325,16 +299,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		D44DAC3117542D0E00072697 /* libCWUtil.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libCWUtil.a;
-			remoteRef = D44DAC3017542D0E00072697 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		D44DAC01175428E800072697 /* Resources */ = {
@@ -371,12 +335,13 @@
 				D44DAC2317542A2000072697 /* ChumpChunk.m in Sources */,
 				D44DAC2717542A3E00072697 /* ChumpChunkReader.m in Sources */,
 				D44DAC3917543C2900072697 /* ChumpHeader.m in Sources */,
-				D44DAC3D1754437D00072697 /* Help.m in Sources */,
+				D44DAC3D1754437D00072697 /* ChumpHelp.m in Sources */,
 				D44DAC4117544E9000072697 /* ChumpHeaderReader.m in Sources */,
 				D44DAC451754676C00072697 /* ChumpMessage.m in Sources */,
 				D44DAC491754710D00072697 /* ChumpMessageBuilder.m in Sources */,
-				D44DAC4D175477BC00072697 /* Constants.m in Sources */,
+				D44DAC4D175477BC00072697 /* ChumpConstants.m in Sources */,
 				D44DAC5117547F7700072697 /* ChumpMessageReader.m in Sources */,
+				D4AEA59B1767CC4200ED2ECB /* ChumpDataReader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -401,11 +366,6 @@
 			isa = PBXTargetDependency;
 			target = D44DABEF175428E800072697 /* Chump */;
 			targetProxy = D44DAC08175428E800072697 /* PBXContainerItemProxy */;
-		};
-		D44DAC3317542D6200072697 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = CWUtil;
-			targetProxy = D44DAC3217542D6200072697 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

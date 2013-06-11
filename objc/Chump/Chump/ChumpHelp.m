@@ -25,12 +25,41 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import <Foundation/Foundation.h>
+#import "ChumpHelp.h"
 
-@interface Help : NSObject
+@implementation ChumpHelp
 
-+ (short)flipShort:(short)value;
-+ (NSData *)flipShortAsData:(short)value;
-+ (short)parseNetworkShort:(NSData *)data range:(NSRange)range;
++ (short)flipShort:(short)value
+{
+    uint8_t *bytes = (uint8_t *) &value;
+    uint8_t flipBytes[2];
+    flipBytes[0] = bytes[1];
+    flipBytes[1] = bytes[0];
+    return ((short *) flipBytes)[0];
+}
+
++ (NSData *)flipShortAsData:(short)value
+{
+    short bytes[1];
+    bytes[0] = [ChumpHelp flipShort:value];
+    return [NSData dataWithBytes:bytes length:2];
+}
+
++ (short)parseNetworkShort:(NSData *)data range:(NSRange)range
+{
+    RAISE_IF_NIL(data);
+    
+    if (data.length < (range.location + range.length))
+    {
+        [NSException raise:@"invalid length" format:@"min length = %d :: data.length = %d", (int) (range.length + range.location), (int) data.length];
+    }
+    
+    char value[2];
+    char bytes[2];
+    [data getBytes:bytes range:range];
+    value[0] = bytes[1];
+    value[1] = bytes[0];
+    return ((short *) value)[0];
+}
 
 @end

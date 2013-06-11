@@ -48,7 +48,6 @@
     {
         input = inInput;
         state = SIZE_NEXT;
-        dataReader = nil;
     }
     
     return self;
@@ -69,7 +68,7 @@
             case SIZE_NEXT:
                 if (dataReader == nil)
                 {
-                    dataReader = [CWDataReader readerWithInput:input num:CHUNK_SIZE_BYTES];
+                    dataReader = [ChumpDataReader readerWithInput:input num:CHUNK_SIZE_BYTES];
                 }
                 
                 data = [dataReader read];
@@ -97,7 +96,7 @@
             case PAYLOAD_NEXT:
                 if (dataReader == nil)
                 {
-                    dataReader = [CWDataReader readerWithInput:input num:chunkSize];
+                    dataReader = [ChumpDataReader readerWithInput:input num:chunkSize];
                 }
                 
                 data = [dataReader read];

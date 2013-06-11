@@ -33,4 +33,4 @@
 #define RAISE_IF_ZERO(arg) if (arg == 0) @throw [NSException exceptionWithName:@"invalid zero value" reason:[NSString stringWithUTF8String:__PRETTY_FUNCTION__] userInfo:nil]
 #define NO_IMPLEMENTATION @throw [NSException exceptionWithName:@"no implementation" reason:[NSString stringWithUTF8String:__PRETTY_FUNCTION__] userInfo:nil]
 
-#define FREE_IF_NOT_NULL(arg) if (arg != NULL) free(arg)
+#define FREE_IF_NOT_NULL(arg) if (arg != NULL) free(arg); else

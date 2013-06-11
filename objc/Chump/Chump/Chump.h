@@ -25,6 +25,9 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+#import "ChumpConstants.h"
+#import "ChumpHelp.h"
+#import "ChumpDataReader.h"
 #import "ChumpChunk.h"
 #import "ChumpChunkReader.h"
 #import "ChumpHeader.h"

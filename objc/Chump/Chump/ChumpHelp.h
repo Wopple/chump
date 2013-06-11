@@ -27,19 +27,10 @@
 
 #import <Foundation/Foundation.h>
 
-#import "ChumpConstants.h"
-#import "ChumpHeader.h"
-#import "ChumpChunk.h"
-#import "ChumpMessage.h"
+@interface ChumpHelp : NSObject
 
-@interface ChumpMessageBuilder : NSObject
-
-@property (strong) NSNumber *messageType;
-@property (strong) NSNumber *tag;
-@property (strong) NSData *payload;
-
-+ (id)builder;
-
-- (ChumpMessage *)build;
++ (short)flipShort:(short)value;
++ (NSData *)flipShortAsData:(short)value;
++ (short)parseNetworkShort:(NSData *)data range:(NSRange)range;
 
 @end

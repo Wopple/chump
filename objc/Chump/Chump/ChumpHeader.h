@@ -27,7 +27,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import "Help.h"
+#import "ChumpHelp.h"
 
 FOUNDATION_EXPORT int const HEADER_VERSION_BYTES;
 FOUNDATION_EXPORT int const HEADER_MESSAGE_TYPE_BYTES;

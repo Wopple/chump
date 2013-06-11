@@ -27,8 +27,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import <CWUtil/CWDataReader.h>
-
+#import "ChumpDataReader.h"
 #import "ChumpChunk.h"
 
 typedef enum
@@ -42,7 +41,7 @@ typedef enum
 @private
     NSInputStream *input;
     ChumpChunkReaderState state;
-    CWDataReader *dataReader;
+    ChumpDataReader *dataReader;
     unsigned int chunkSize;
 }
 

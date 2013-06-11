@@ -27,15 +27,14 @@
 
 #import <Foundation/Foundation.h>
 
-#import <CWUtil/CWDataReader.h>
-
+#import "ChumpDataReader.h"
 #import "ChumpHeader.h"
 
 @interface ChumpHeaderReader : NSObject
 {
 @private
     NSInputStream *input;
-    CWDataReader *dataReader;
+    ChumpDataReader *dataReader;
 }
 
 + (id)readerWithInput:(NSInputStream *)input;

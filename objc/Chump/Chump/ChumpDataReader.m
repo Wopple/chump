@@ -25,6 +25,76 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "Constants.h"
+#import "ChumpDataReader.h"
 
-short const CHUMP_VERSION = 0;
+@implementation ChumpDataReader
+
++ (id)readerWithInput:(NSInputStream *)input num:(NSUInteger)num
+{
+    return [[self alloc] initWithInput:input num:num];
+}
+
+- (id)init
+{
+    NO_IMPLEMENTATION;
+}
+
+// designated
+- (id)initWithInput:(NSInputStream *)inInput num:(NSUInteger)inNum
+{
+    RAISE_IF_NIL(inInput);
+    
+    if (self = [super init])
+    {
+        input = inInput;
+        num = inNum;
+        index = 0;
+        
+        if (num > 0)
+        {
+            buffer = (uint8_t *) malloc(sizeof(uint8_t) * num);
+        }
+        else
+        {
+            buffer = NULL;
+        }
+    }
+    
+    return self;
+}
+
+- (void)dealloc
+{
+    FREE_IF_NOT_NULL(buffer);
+}
+
+- (NSData *)read
+{
+    if (num == 0)
+    {
+        return [NSData dataWithBytes:nil length:0];
+    }
+    
+    if (![input hasBytesAvailable])
+    {
+        return nil;
+    }
+    
+    index += [input read:buffer + index maxLength:num - index];
+    
+    if (index == num)
+    {
+        index = 0;
+        return [NSData dataWithBytes:buffer length:num];
+    }
+    else if (index > num)
+    {
+        @throw [NSException exceptionWithName:@"fatal error" reason:@"ChumpDataReader read past the buffer size" userInfo:nil];
+    }
+    else
+    {
+        return nil;
+    }
+}
+
+@end

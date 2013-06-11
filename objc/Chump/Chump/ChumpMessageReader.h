@@ -27,8 +27,6 @@
 
 #import <Foundation/Foundation.h>
 
-#import <CWUtil/CWDataReader.h>
-
 #import "ChumpChunkReader.h"
 #import "ChumpHeaderReader.h"
 #import "ChumpMessage.h"

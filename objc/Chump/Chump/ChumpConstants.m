@@ -25,21 +25,6 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import <Foundation/Foundation.h>
-
 #import "ChumpConstants.h"
-#import "ChumpHeader.h"
-#import "ChumpChunk.h"
-#import "ChumpMessage.h"
 
-@interface ChumpMessageBuilder : NSObject
-
-@property (strong) NSNumber *messageType;
-@property (strong) NSNumber *tag;
-@property (strong) NSData *payload;
-
-+ (id)builder;
-
-- (ChumpMessage *)build;
-
-@end
+short const CHUMP_VERSION = 0;

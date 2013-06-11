@@ -27,7 +27,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import "Help.h"
+#import "ChumpHelp.h"
 
 FOUNDATION_EXPORT int const CHUNK_SIZE_BYTES;
 FOUNDATION_EXPORT int const CHUNK_MAX_SIZE;
