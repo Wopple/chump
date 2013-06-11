@@ -33,8 +33,10 @@ FOUNDATION_EXPORT int const CHUNK_SIZE_BYTES;
 FOUNDATION_EXPORT int const CHUNK_MAX_SIZE;
 
 @interface ChumpChunk : NSObject
-
-@property (strong) NSData *payload;
+{
+@private
+    NSData *payload;
+}
 
 + (id)chunkWithPayload:(NSData *)payload;
 
@@ -43,6 +45,7 @@ FOUNDATION_EXPORT int const CHUNK_MAX_SIZE;
 // designated
 - (id)initWithPayload:(NSData *)payload;
 
+- (NSData *)payload;
 - (NSData *)toData;
 - (NSUInteger)calcBytes;
 

@@ -31,15 +31,19 @@
 #import "ChumpChunk.h"
 
 @interface ChumpMessage : NSObject
-
-@property (strong) ChumpHeader *header;
-@property (strong) ChumpChunk *chunk;
+{
+@private
+    ChumpHeader *header;
+    ChumpChunk *chunk;
+}
 
 + (id)messageWithHeader:(ChumpHeader *)header chunk:(ChumpChunk *)chunk;
 
 // designated
 - (id)initWithHeader:(ChumpHeader *)header chunk:(ChumpChunk *)chunk;
 
+- (ChumpHeader *)header;
+- (ChumpChunk *)chunk;
 - (NSData *)toData;
 - (NSUInteger)calcBytes;
 

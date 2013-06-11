@@ -29,9 +29,6 @@
 
 @implementation ChumpMessage
 
-@synthesize header;
-@synthesize chunk;
-
 + (id)messageWithHeader:(ChumpHeader *)header chunk:(ChumpChunk *)chunk
 {
     return [[self alloc] initWithHeader:header chunk:chunk];
@@ -68,6 +65,16 @@
 - (NSUInteger)calcBytes
 {
     return [header calcBytes] + [chunk calcBytes];
+}
+
+- (ChumpHeader *)header
+{
+    return header;
+}
+
+- (ChumpChunk *)chunk
+{
+    return chunk;
 }
 
 @end

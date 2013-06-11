@@ -35,10 +35,12 @@ FOUNDATION_EXPORT int const HEADER_TAG_BYTES;
 FOUNDATION_EXPORT int const HEADER_TOTAL_BYTES;
 
 @interface ChumpHeader : NSObject
-
-@property short version;
-@property short messageType;
-@property short tag;
+{
+@private
+    short version;
+    short messageType;
+    short tag;
+}
 
 + (id)headerWithVersion:(short)version messageType:(short)messageType tag:(short)tag;
 
@@ -47,6 +49,9 @@ FOUNDATION_EXPORT int const HEADER_TOTAL_BYTES;
 
 - (NSData *)toData;
 - (NSUInteger)calcBytes;
+- (short)version;
+- (short)messageType;
+- (short)tag;
 
 + (short)parseVersion:(NSData *)header;
 + (short)parseMessageType:(NSData *)header;

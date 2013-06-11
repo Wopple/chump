@@ -32,8 +32,6 @@ int const CHUNK_MAX_SIZE = 0xFFFF;
 
 @implementation ChumpChunk
 
-@synthesize payload;
-
 + (id)chunkWithPayload:(NSData *)payload
 {
     if (payload != nil)
@@ -67,6 +65,11 @@ int const CHUNK_MAX_SIZE = 0xFFFF;
     }
     
     return self;
+}
+
+- (NSData *)payload
+{
+    return payload;
 }
 
 - (NSData *)toData
