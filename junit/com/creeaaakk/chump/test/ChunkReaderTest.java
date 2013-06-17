@@ -25,17 +25,21 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-package com.creeaaakk.chump;
+package com.creeaaakk.chump.test;
 
 import java.io.IOException;
 import java.io.PipedInputStream;
 import java.io.PipedOutputStream;
+import java.util.Arrays;
 
 import junit.framework.TestCase;
 
 import org.junit.Test;
 
-public class HeaderReaderTest extends TestCase
+import com.creeaaakk.chump.Chunk;
+import com.creeaaakk.chump.ChunkReader;
+
+public class ChunkReaderTest extends TestCase
 {
   private boolean blocked = true;
 
@@ -44,29 +48,22 @@ public class HeaderReaderTest extends TestCase
   {
     PipedInputStream input = new PipedInputStream();
     PipedOutputStream output = new PipedOutputStream(input);
-    final HeaderReader reader = new HeaderReader(input, true);
+    final ChunkReader reader = new ChunkReader(input, true);
 
     output.write(new byte[]
       { 0, 0,
-        0, 1,
-        0, 2,
-
-        0, 3,
         0, 4,
-        0, 5,
+        1, 2, 3, 5,
+        0, 3,
+        6, 7 });
 
-        0, 6,
-        0, 7 });
+    Chunk chunk = reader.read();
+    assertEquals(0, chunk.size);
+    assertTrue(Arrays.equals(new byte[0], chunk.payload));
 
-    Header header = reader.read();
-    assertEquals((short) 0, header.version);
-    assertEquals((short) 1, header.messageType);
-    assertEquals((short) 2, header.tag);
-
-    header = reader.read();
-    assertEquals((short) 3, header.version);
-    assertEquals((short) 4, header.messageType);
-    assertEquals((short) 5, header.tag);
+    chunk = reader.read();
+    assertEquals(4, chunk.size);
+    assertTrue(Arrays.equals(new byte[] { 1, 2, 3, 5 }, chunk.payload));
 
     final Thread tests = new Thread(new Runnable()
     {
@@ -96,34 +93,31 @@ public class HeaderReaderTest extends TestCase
   {
     PipedInputStream input = new PipedInputStream();
     PipedOutputStream output = new PipedOutputStream(input);
-    HeaderReader reader = new HeaderReader(input, false);
+    ChunkReader reader = new ChunkReader(input, false);
 
-    Header header = reader.read();
-    assertNull(header);
+    Chunk chunk = reader.read();
+    assertNull(chunk);
 
-    output.write(new byte[] { 0, 0, 0, 1, 0 });
+    output.write(new byte[] { 0 });
 
-    header = reader.read();
-    assertNull(header);
+    chunk = reader.read();
+    assertNull(chunk);
 
-    output.write(new byte[] { 2 });
+    output.write(new byte[] { 0 });
 
-    header = reader.read();
-    assertNotNull(header);
-    assertEquals((short) 0, header.version);
-    assertEquals((short) 1, header.messageType);
-    assertEquals((short) 2, header.tag);
+    chunk = reader.read();
+    assertNotNull(chunk);
+    assertEquals(0, chunk.size);
+    assertTrue(Arrays.equals(new byte[0], chunk.payload));
 
     output.write(new byte[]
-      { 0, 3,
-        0, 4,
-        0, 5,
+      { 0, 4,
+        1, 2, 3, 5,
         6, 7, 8, 9 });
 
-    header = reader.read();
-    assertNotNull(header);
-    assertEquals((short) 3, header.version);
-    assertEquals((short) 4, header.messageType);
-    assertEquals((short) 5, header.tag);
+    chunk = reader.read();
+    assertNotNull(chunk);
+    assertEquals(4, chunk.size);
+    assertTrue(Arrays.equals(new byte[] { 1, 2, 3, 5 }, chunk.payload));
   }
 }
