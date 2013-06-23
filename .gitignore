@@ -5,9 +5,12 @@
 *.war
 *.ear
 
-# Eclipse Files #
+# Eclipse Turds #
 /.classpath
 /.project
 /junit/.project
 /bin
 /.settings
+
+# Mac Nonsense #
+.DS_Store

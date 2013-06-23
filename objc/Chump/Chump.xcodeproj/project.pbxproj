@@ -1,0 +1,532 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D44DABF4175428E800072697 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44DABF3175428E800072697 /* Cocoa.framework */; };
+		D44DAC06175428E800072697 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44DAC05175428E800072697 /* SenTestingKit.framework */; };
+		D44DAC07175428E800072697 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44DABF3175428E800072697 /* Cocoa.framework */; };
+		D44DAC0A175428E800072697 /* libChump.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D44DABF0175428E800072697 /* libChump.a */; };
+		D44DAC10175428E800072697 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D44DAC0E175428E800072697 /* InfoPlist.strings */; };
+		D44DAC2217542A2000072697 /* ChumpChunk.h in Headers */ = {isa = PBXBuildFile; fileRef = D44DAC2017542A2000072697 /* ChumpChunk.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D44DAC2317542A2000072697 /* ChumpChunk.m in Sources */ = {isa = PBXBuildFile; fileRef = D44DAC2117542A2000072697 /* ChumpChunk.m */; };
+		D44DAC2617542A3E00072697 /* ChumpChunkReader.h in Headers */ = {isa = PBXBuildFile; fileRef = D44DAC2417542A3E00072697 /* ChumpChunkReader.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D44DAC2717542A3E00072697 /* ChumpChunkReader.m in Sources */ = {isa = PBXBuildFile; fileRef = D44DAC2517542A3E00072697 /* ChumpChunkReader.m */; };
+		D44DAC2A17542B2800072697 /* ChumpChunkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D44DAC2917542B2800072697 /* ChumpChunkTests.m */; };
+		D44DAC2B17542B7900072697 /* Chump.h in Headers */ = {isa = PBXBuildFile; fileRef = D44DABFC175428E800072697 /* Chump.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D44DAC3817543C2900072697 /* ChumpHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = D44DAC3617543C2900072697 /* ChumpHeader.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D44DAC3917543C2900072697 /* ChumpHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = D44DAC3717543C2900072697 /* ChumpHeader.m */; };
+		D44DAC3C1754437D00072697 /* ChumpHelp.h in Headers */ = {isa = PBXBuildFile; fileRef = D44DAC3A1754437D00072697 /* ChumpHelp.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D44DAC3D1754437D00072697 /* ChumpHelp.m in Sources */ = {isa = PBXBuildFile; fileRef = D44DAC3B1754437D00072697 /* ChumpHelp.m */; };
+		D44DAC4017544E9000072697 /* ChumpHeaderReader.h in Headers */ = {isa = PBXBuildFile; fileRef = D44DAC3E17544E9000072697 /* ChumpHeaderReader.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D44DAC4117544E9000072697 /* ChumpHeaderReader.m in Sources */ = {isa = PBXBuildFile; fileRef = D44DAC3F17544E9000072697 /* ChumpHeaderReader.m */; };
+		D44DAC441754676C00072697 /* ChumpMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = D44DAC421754676C00072697 /* ChumpMessage.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D44DAC451754676C00072697 /* ChumpMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = D44DAC431754676C00072697 /* ChumpMessage.m */; };
+		D44DAC481754710D00072697 /* ChumpMessageBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = D44DAC461754710D00072697 /* ChumpMessageBuilder.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D44DAC491754710D00072697 /* ChumpMessageBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = D44DAC471754710D00072697 /* ChumpMessageBuilder.m */; };
+		D44DAC4C175477BC00072697 /* ChumpConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = D44DAC4A175477BC00072697 /* ChumpConstants.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D44DAC4D175477BC00072697 /* ChumpConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = D44DAC4B175477BC00072697 /* ChumpConstants.m */; };
+		D44DAC5017547F7700072697 /* ChumpMessageReader.h in Headers */ = {isa = PBXBuildFile; fileRef = D44DAC4E17547F7700072697 /* ChumpMessageReader.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D44DAC5117547F7700072697 /* ChumpMessageReader.m in Sources */ = {isa = PBXBuildFile; fileRef = D44DAC4F17547F7700072697 /* ChumpMessageReader.m */; };
+		D4AEA59A1767CC4200ED2ECB /* ChumpDataReader.h in Headers */ = {isa = PBXBuildFile; fileRef = D4AEA5981767CC4200ED2ECB /* ChumpDataReader.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D4AEA59B1767CC4200ED2ECB /* ChumpDataReader.m in Sources */ = {isa = PBXBuildFile; fileRef = D4AEA5991767CC4200ED2ECB /* ChumpDataReader.m */; };
+		D4F1C9751756A0DA009A6D68 /* ChumpChunkReaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F1C9741756A0DA009A6D68 /* ChumpChunkReaderTests.m */; };
+		D4F1C97A1756C3B2009A6D68 /* ChumpHeaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F1C9791756C3B2009A6D68 /* ChumpHeaderTests.m */; };
+		D4F1C97D1756CBDE009A6D68 /* ChumpHeaderReaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F1C97C1756CBDE009A6D68 /* ChumpHeaderReaderTests.m */; };
+		D4F1C9801756CDAB009A6D68 /* ChumpMessageTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F1C97F1756CDAB009A6D68 /* ChumpMessageTests.m */; };
+		D4F1C9831756D4B5009A6D68 /* ChumpMessageBuilderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F1C9821756D4B5009A6D68 /* ChumpMessageBuilderTests.m */; };
+		D4F1C9861756DACD009A6D68 /* ChumpMessageReaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F1C9851756DACD009A6D68 /* ChumpMessageReaderTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D44DAC08175428E800072697 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D44DABE8175428E800072697 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D44DABEF175428E800072697;
+			remoteInfo = Chump;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D44DABF0175428E800072697 /* libChump.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libChump.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		D44DABF3175428E800072697 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		D44DABF6175428E800072697 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		D44DABF7175428E800072697 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		D44DABF8175428E800072697 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D44DABFB175428E800072697 /* Chump-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Chump-Prefix.pch"; sourceTree = "<group>"; };
+		D44DABFC175428E800072697 /* Chump.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Chump.h; sourceTree = "<group>"; };
+		D44DAC04175428E800072697 /* ChumpTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChumpTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D44DAC05175428E800072697 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		D44DAC0D175428E800072697 /* ChumpTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ChumpTests-Info.plist"; sourceTree = "<group>"; };
+		D44DAC0F175428E800072697 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D44DAC2017542A2000072697 /* ChumpChunk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChumpChunk.h; sourceTree = "<group>"; };
+		D44DAC2117542A2000072697 /* ChumpChunk.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChumpChunk.m; sourceTree = "<group>"; };
+		D44DAC2417542A3E00072697 /* ChumpChunkReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChumpChunkReader.h; sourceTree = "<group>"; };
+		D44DAC2517542A3E00072697 /* ChumpChunkReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChumpChunkReader.m; sourceTree = "<group>"; };
+		D44DAC2817542B2800072697 /* ChumpChunkTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChumpChunkTests.h; sourceTree = "<group>"; };
+		D44DAC2917542B2800072697 /* ChumpChunkTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChumpChunkTests.m; sourceTree = "<group>"; };
+		D44DAC3617543C2900072697 /* ChumpHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChumpHeader.h; sourceTree = "<group>"; };
+		D44DAC3717543C2900072697 /* ChumpHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChumpHeader.m; sourceTree = "<group>"; };
+		D44DAC3A1754437D00072697 /* ChumpHelp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChumpHelp.h; sourceTree = "<group>"; };
+		D44DAC3B1754437D00072697 /* ChumpHelp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChumpHelp.m; sourceTree = "<group>"; };
+		D44DAC3E17544E9000072697 /* ChumpHeaderReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChumpHeaderReader.h; sourceTree = "<group>"; };
+		D44DAC3F17544E9000072697 /* ChumpHeaderReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChumpHeaderReader.m; sourceTree = "<group>"; };
+		D44DAC421754676C00072697 /* ChumpMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChumpMessage.h; sourceTree = "<group>"; };
+		D44DAC431754676C00072697 /* ChumpMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChumpMessage.m; sourceTree = "<group>"; };
+		D44DAC461754710D00072697 /* ChumpMessageBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChumpMessageBuilder.h; sourceTree = "<group>"; };
+		D44DAC471754710D00072697 /* ChumpMessageBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChumpMessageBuilder.m; sourceTree = "<group>"; };
+		D44DAC4A175477BC00072697 /* ChumpConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChumpConstants.h; sourceTree = "<group>"; };
+		D44DAC4B175477BC00072697 /* ChumpConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChumpConstants.m; sourceTree = "<group>"; };
+		D44DAC4E17547F7700072697 /* ChumpMessageReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChumpMessageReader.h; sourceTree = "<group>"; };
+		D44DAC4F17547F7700072697 /* ChumpMessageReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChumpMessageReader.m; sourceTree = "<group>"; };
+		D4AEA5981767CC4200ED2ECB /* ChumpDataReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChumpDataReader.h; sourceTree = "<group>"; };
+		D4AEA5991767CC4200ED2ECB /* ChumpDataReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChumpDataReader.m; sourceTree = "<group>"; };
+		D4F1C9731756A0DA009A6D68 /* ChumpChunkReaderTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChumpChunkReaderTests.h; sourceTree = "<group>"; };
+		D4F1C9741756A0DA009A6D68 /* ChumpChunkReaderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChumpChunkReaderTests.m; sourceTree = "<group>"; };
+		D4F1C9781756C3B1009A6D68 /* ChumpHeaderTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChumpHeaderTests.h; sourceTree = "<group>"; };
+		D4F1C9791756C3B2009A6D68 /* ChumpHeaderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChumpHeaderTests.m; sourceTree = "<group>"; };
+		D4F1C97B1756CBDE009A6D68 /* ChumpHeaderReaderTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChumpHeaderReaderTests.h; sourceTree = "<group>"; };
+		D4F1C97C1756CBDE009A6D68 /* ChumpHeaderReaderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChumpHeaderReaderTests.m; sourceTree = "<group>"; };
+		D4F1C97E1756CDAB009A6D68 /* ChumpMessageTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChumpMessageTests.h; sourceTree = "<group>"; };
+		D4F1C97F1756CDAB009A6D68 /* ChumpMessageTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChumpMessageTests.m; sourceTree = "<group>"; };
+		D4F1C9811756D4B5009A6D68 /* ChumpMessageBuilderTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChumpMessageBuilderTests.h; sourceTree = "<group>"; };
+		D4F1C9821756D4B5009A6D68 /* ChumpMessageBuilderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChumpMessageBuilderTests.m; sourceTree = "<group>"; };
+		D4F1C9841756DACD009A6D68 /* ChumpMessageReaderTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChumpMessageReaderTests.h; sourceTree = "<group>"; };
+		D4F1C9851756DACD009A6D68 /* ChumpMessageReaderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChumpMessageReaderTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D44DABED175428E800072697 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D44DABF4175428E800072697 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D44DAC00175428E800072697 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D44DAC06175428E800072697 /* SenTestingKit.framework in Frameworks */,
+				D44DAC07175428E800072697 /* Cocoa.framework in Frameworks */,
+				D44DAC0A175428E800072697 /* libChump.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D44DABE7175428E800072697 = {
+			isa = PBXGroup;
+			children = (
+				D44DABF9175428E800072697 /* Chump */,
+				D44DAC0B175428E800072697 /* ChumpTests */,
+				D44DABF2175428E800072697 /* Frameworks */,
+				D44DABF1175428E800072697 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D44DABF1175428E800072697 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D44DABF0175428E800072697 /* libChump.a */,
+				D44DAC04175428E800072697 /* ChumpTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D44DABF2175428E800072697 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D44DABF3175428E800072697 /* Cocoa.framework */,
+				D44DAC05175428E800072697 /* SenTestingKit.framework */,
+				D44DABF5175428E800072697 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D44DABF5175428E800072697 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D44DABF6175428E800072697 /* AppKit.framework */,
+				D44DABF7175428E800072697 /* CoreData.framework */,
+				D44DABF8175428E800072697 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		D44DABF9175428E800072697 /* Chump */ = {
+			isa = PBXGroup;
+			children = (
+				D44DABFB175428E800072697 /* Chump-Prefix.pch */,
+				D44DABFC175428E800072697 /* Chump.h */,
+				D44DAC4A175477BC00072697 /* ChumpConstants.h */,
+				D44DAC4B175477BC00072697 /* ChumpConstants.m */,
+				D44DAC3A1754437D00072697 /* ChumpHelp.h */,
+				D44DAC3B1754437D00072697 /* ChumpHelp.m */,
+				D4AEA5981767CC4200ED2ECB /* ChumpDataReader.h */,
+				D4AEA5991767CC4200ED2ECB /* ChumpDataReader.m */,
+				D44DAC2017542A2000072697 /* ChumpChunk.h */,
+				D44DAC2117542A2000072697 /* ChumpChunk.m */,
+				D44DAC2417542A3E00072697 /* ChumpChunkReader.h */,
+				D44DAC2517542A3E00072697 /* ChumpChunkReader.m */,
+				D44DAC3617543C2900072697 /* ChumpHeader.h */,
+				D44DAC3717543C2900072697 /* ChumpHeader.m */,
+				D44DAC3E17544E9000072697 /* ChumpHeaderReader.h */,
+				D44DAC3F17544E9000072697 /* ChumpHeaderReader.m */,
+				D44DAC421754676C00072697 /* ChumpMessage.h */,
+				D44DAC431754676C00072697 /* ChumpMessage.m */,
+				D44DAC461754710D00072697 /* ChumpMessageBuilder.h */,
+				D44DAC471754710D00072697 /* ChumpMessageBuilder.m */,
+				D44DAC4E17547F7700072697 /* ChumpMessageReader.h */,
+				D44DAC4F17547F7700072697 /* ChumpMessageReader.m */,
+			);
+			path = Chump;
+			sourceTree = "<group>";
+		};
+		D44DAC0B175428E800072697 /* ChumpTests */ = {
+			isa = PBXGroup;
+			children = (
+				D44DAC0D175428E800072697 /* ChumpTests-Info.plist */,
+				D44DAC0E175428E800072697 /* InfoPlist.strings */,
+				D44DAC2817542B2800072697 /* ChumpChunkTests.h */,
+				D44DAC2917542B2800072697 /* ChumpChunkTests.m */,
+				D4F1C9731756A0DA009A6D68 /* ChumpChunkReaderTests.h */,
+				D4F1C9741756A0DA009A6D68 /* ChumpChunkReaderTests.m */,
+				D4F1C9781756C3B1009A6D68 /* ChumpHeaderTests.h */,
+				D4F1C9791756C3B2009A6D68 /* ChumpHeaderTests.m */,
+				D4F1C97B1756CBDE009A6D68 /* ChumpHeaderReaderTests.h */,
+				D4F1C97C1756CBDE009A6D68 /* ChumpHeaderReaderTests.m */,
+				D4F1C97E1756CDAB009A6D68 /* ChumpMessageTests.h */,
+				D4F1C97F1756CDAB009A6D68 /* ChumpMessageTests.m */,
+				D4F1C9811756D4B5009A6D68 /* ChumpMessageBuilderTests.h */,
+				D4F1C9821756D4B5009A6D68 /* ChumpMessageBuilderTests.m */,
+				D4F1C9841756DACD009A6D68 /* ChumpMessageReaderTests.h */,
+				D4F1C9851756DACD009A6D68 /* ChumpMessageReaderTests.m */,
+			);
+			path = ChumpTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		D44DABEE175428E800072697 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D44DAC2217542A2000072697 /* ChumpChunk.h in Headers */,
+				D44DAC2617542A3E00072697 /* ChumpChunkReader.h in Headers */,
+				D44DAC2B17542B7900072697 /* Chump.h in Headers */,
+				D44DAC3817543C2900072697 /* ChumpHeader.h in Headers */,
+				D44DAC3C1754437D00072697 /* ChumpHelp.h in Headers */,
+				D44DAC4017544E9000072697 /* ChumpHeaderReader.h in Headers */,
+				D44DAC441754676C00072697 /* ChumpMessage.h in Headers */,
+				D44DAC481754710D00072697 /* ChumpMessageBuilder.h in Headers */,
+				D44DAC4C175477BC00072697 /* ChumpConstants.h in Headers */,
+				D44DAC5017547F7700072697 /* ChumpMessageReader.h in Headers */,
+				D4AEA59A1767CC4200ED2ECB /* ChumpDataReader.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		D44DABEF175428E800072697 /* Chump */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D44DAC16175428E800072697 /* Build configuration list for PBXNativeTarget "Chump" */;
+			buildPhases = (
+				D44DABEC175428E800072697 /* Sources */,
+				D44DABED175428E800072697 /* Frameworks */,
+				D44DABEE175428E800072697 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Chump;
+			productName = Chump;
+			productReference = D44DABF0175428E800072697 /* libChump.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		D44DAC03175428E800072697 /* ChumpTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D44DAC19175428E800072697 /* Build configuration list for PBXNativeTarget "ChumpTests" */;
+			buildPhases = (
+				D44DABFF175428E800072697 /* Sources */,
+				D44DAC00175428E800072697 /* Frameworks */,
+				D44DAC01175428E800072697 /* Resources */,
+				D44DAC02175428E800072697 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D44DAC09175428E800072697 /* PBXTargetDependency */,
+			);
+			name = ChumpTests;
+			productName = ChumpTests;
+			productReference = D44DAC04175428E800072697 /* ChumpTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D44DABE8175428E800072697 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "Creeaaakk Ware LLC";
+			};
+			buildConfigurationList = D44DABEB175428E800072697 /* Build configuration list for PBXProject "Chump" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = D44DABE7175428E800072697;
+			productRefGroup = D44DABF1175428E800072697 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D44DABEF175428E800072697 /* Chump */,
+				D44DAC03175428E800072697 /* ChumpTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D44DAC01175428E800072697 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D44DAC10175428E800072697 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		D44DAC02175428E800072697 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D44DABEC175428E800072697 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D44DAC2317542A2000072697 /* ChumpChunk.m in Sources */,
+				D44DAC2717542A3E00072697 /* ChumpChunkReader.m in Sources */,
+				D44DAC3917543C2900072697 /* ChumpHeader.m in Sources */,
+				D44DAC3D1754437D00072697 /* ChumpHelp.m in Sources */,
+				D44DAC4117544E9000072697 /* ChumpHeaderReader.m in Sources */,
+				D44DAC451754676C00072697 /* ChumpMessage.m in Sources */,
+				D44DAC491754710D00072697 /* ChumpMessageBuilder.m in Sources */,
+				D44DAC4D175477BC00072697 /* ChumpConstants.m in Sources */,
+				D44DAC5117547F7700072697 /* ChumpMessageReader.m in Sources */,
+				D4AEA59B1767CC4200ED2ECB /* ChumpDataReader.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D44DABFF175428E800072697 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D44DAC2A17542B2800072697 /* ChumpChunkTests.m in Sources */,
+				D4F1C9751756A0DA009A6D68 /* ChumpChunkReaderTests.m in Sources */,
+				D4F1C97A1756C3B2009A6D68 /* ChumpHeaderTests.m in Sources */,
+				D4F1C97D1756CBDE009A6D68 /* ChumpHeaderReaderTests.m in Sources */,
+				D4F1C9801756CDAB009A6D68 /* ChumpMessageTests.m in Sources */,
+				D4F1C9831756D4B5009A6D68 /* ChumpMessageBuilderTests.m in Sources */,
+				D4F1C9861756DACD009A6D68 /* ChumpMessageReaderTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D44DAC09175428E800072697 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D44DABEF175428E800072697 /* Chump */;
+			targetProxy = D44DAC08175428E800072697 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D44DAC0E175428E800072697 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D44DAC0F175428E800072697 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D44DAC14175428E800072697 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		D44DAC15175428E800072697 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				OTHER_LDFLAGS = "";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		D44DAC17175428E800072697 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Chump/Chump-Prefix.pch";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "include/$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		D44DAC18175428E800072697 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Chump/Chump-Prefix.pch";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "include/$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		D44DAC1A175428E800072697 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Chump/Chump-Prefix.pch";
+				INFOPLIST_FILE = "ChumpTests/ChumpTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		D44DAC1B175428E800072697 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Chump/Chump-Prefix.pch";
+				INFOPLIST_FILE = "ChumpTests/ChumpTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D44DABEB175428E800072697 /* Build configuration list for PBXProject "Chump" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D44DAC14175428E800072697 /* Debug */,
+				D44DAC15175428E800072697 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D44DAC16175428E800072697 /* Build configuration list for PBXNativeTarget "Chump" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D44DAC17175428E800072697 /* Debug */,
+				D44DAC18175428E800072697 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D44DAC19175428E800072697 /* Build configuration list for PBXNativeTarget "ChumpTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D44DAC1A175428E800072697 /* Debug */,
+				D44DAC1B175428E800072697 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D44DABE8175428E800072697 /* Project object */;
+}

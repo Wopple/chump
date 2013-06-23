@@ -1,0 +1,3 @@
+[submodule "objc/Chump/CWUtil"]
+	path = objc/Chump/CWUtil
+	url = git://github.com/creeaaakk/objc-tools.git
