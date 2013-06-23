@@ -6,11 +6,11 @@
 *.ear
 
 # Eclipse Turds #
-/.classpath
-/.project
-/junit/.project
-/bin
-/.settings
+/java/.classpath
+/java/.project
+/java/junit/.project
+/java/bin
+/java/.settings
 
 # Mac Nonsense #
 .DS_Store
