@@ -5,15 +5,15 @@
 *.war
 *.ear
 
-# Eclipse Turds #
+# Eclipse Files #
 /java/.classpath
 /java/.project
 /java/junit/.project
 /java/bin
 /java/.settings
 
-# Mac Nonsense #
+# Mac Files #
 .DS_Store
 
-# Maven Junk #
+# Maven Files #
 /java/target/
