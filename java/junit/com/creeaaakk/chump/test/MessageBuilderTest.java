@@ -25,7 +25,7 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-package com.creeaaakk.chump;
+package com.creeaaakk.chump.test;
 
 import java.util.Arrays;
 
@@ -33,18 +33,64 @@ import junit.framework.TestCase;
 
 import org.junit.Test;
 
-public class MessageTest extends TestCase
+import com.creeaaakk.chump.ChumpInfo;
+import com.creeaaakk.chump.Message;
+import com.creeaaakk.chump.MessageBuilder;
+
+public class MessageBuilderTest extends TestCase
 {
   @Test
   public void test()
   {
-    byte[] expected =
-      { 0, 0,
-        0, 1,
-        0, 2,
-        0, 3,
-        4, 5, 6 };
-    Message message = new Message(new Header((short) 0, (short) 1, (short) 2), new Chunk(new byte[] { 4, 5, 6 }));
-    assertTrue(Arrays.equals(expected, message.toBytes()));
+    Message message = null;
+
+    try
+    {
+      // missing payload, should throw Error
+      message = new MessageBuilder().setMessageType((short) 0).setTag((short) 0).build();
+    }
+    catch (Error error)
+    {
+    }
+
+    assertNull(message);
+
+    try
+    {
+      // missing tag, should throw Error
+      message = new MessageBuilder().setMessageType((short) 0).setPayload(new byte[0]).build();
+    }
+    catch (Error error)
+    {
+    }
+
+    assertNull(message);
+
+    try
+    {
+      // missing messsage type, should throw Error
+      message = new MessageBuilder().setTag((short) 0).setPayload(new byte[0]).build();
+    }
+    catch (Error error)
+    {
+    }
+
+    assertNull(message);
+
+    try
+    {
+      message = new MessageBuilder().setMessageType((short) 0).setTag((short) 1).setPayload(new byte[] { 3, 4 }).build();
+    }
+    catch (Throwable throwable)
+    {
+      throwable.printStackTrace();
+    }
+
+    assertNotNull(message);
+    assertEquals(ChumpInfo.PROTOCOL_VERSION, message.header.version);
+    assertEquals((short) 0, message.header.messageType);
+    assertEquals((short) 1, message.header.tag);
+    assertEquals(2, message.chunk.size);
+    assertTrue(Arrays.equals(new byte[] { 3, 4 }, message.chunk.payload));
   }
 }
