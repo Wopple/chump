@@ -4,7 +4,7 @@
   <artifactId>chump</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <build>
-    <sourceDirectory>junit</sourceDirectory>
+    <sourceDirectory>src</sourceDirectory>
     <plugins>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
@@ -23,6 +23,13 @@
       </extension>  
     </extensions>  
   </build>
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.11</version>
+    </dependency>
+  </dependencies>
   <repositories>
     <repository>
       <id>maven-s3-release-repo</id>
