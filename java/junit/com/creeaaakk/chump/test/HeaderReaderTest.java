@@ -49,49 +49,57 @@ public class HeaderReaderTest extends TestCase
     PipedOutputStream output = new PipedOutputStream(input);
     final HeaderReader reader = new HeaderReader(input, true);
 
-    output.write(new byte[]
-      { 0, 0,
-        0, 1,
-        0, 2,
-
-        0, 3,
-        0, 4,
-        0, 5,
-
-        0, 6,
-        0, 7 });
-
-    Header header = reader.read();
-    assertEquals((short) 0, header.version);
-    assertEquals((short) 1, header.messageType);
-    assertEquals((short) 2, header.tag);
-
-    header = reader.read();
-    assertEquals((short) 3, header.version);
-    assertEquals((short) 4, header.messageType);
-    assertEquals((short) 5, header.tag);
-
-    final Thread tests = new Thread(new Runnable()
+    try
     {
-      @Override
-      public void run()
-      {
-        try
-        {
-          reader.read();
-          blocked = false;
-        }
-        catch (IOException exception)
-        {
-          exception.printStackTrace();
-        }
-      }
-    });
+      output.write(new byte[]
+        { 0, 0,
+          0, 1,
+          0, 2,
 
-    tests.start();
-    tests.join(50);
-    tests.interrupt();
-    assertEquals(true, blocked);
+          0, 3,
+          0, 4,
+          0, 5,
+
+          0, 6,
+          0, 7 });
+
+      Header header = reader.read();
+      assertEquals((short) 0, header.version);
+      assertEquals((short) 1, header.messageType);
+      assertEquals((short) 2, header.tag);
+
+      header = reader.read();
+      assertEquals((short) 3, header.version);
+      assertEquals((short) 4, header.messageType);
+      assertEquals((short) 5, header.tag);
+
+      final Thread tests = new Thread(new Runnable()
+      {
+        @Override
+        public void run()
+        {
+          try
+          {
+            reader.read();
+            blocked = false;
+          }
+          catch (IOException exception)
+          {
+            exception.printStackTrace();
+          }
+        }
+      });
+
+      tests.start();
+      tests.join(50);
+      tests.interrupt();
+      assertEquals(true, blocked);
+    }
+    finally
+    {
+      output.close();
+      reader.close();
+    }
   }
 
   @Test
@@ -101,32 +109,40 @@ public class HeaderReaderTest extends TestCase
     PipedOutputStream output = new PipedOutputStream(input);
     HeaderReader reader = new HeaderReader(input, false);
 
-    Header header = reader.read();
-    assertNull(header);
+    try
+    {
+      Header header = reader.read();
+      assertNull(header);
 
-    output.write(new byte[] { 0, 0, 0, 1, 0 });
+      output.write(new byte[] { 0, 0, 0, 1, 0 });
 
-    header = reader.read();
-    assertNull(header);
+      header = reader.read();
+      assertNull(header);
 
-    output.write(new byte[] { 2 });
+      output.write(new byte[] { 2 });
 
-    header = reader.read();
-    assertNotNull(header);
-    assertEquals((short) 0, header.version);
-    assertEquals((short) 1, header.messageType);
-    assertEquals((short) 2, header.tag);
+      header = reader.read();
+      assertNotNull(header);
+      assertEquals((short) 0, header.version);
+      assertEquals((short) 1, header.messageType);
+      assertEquals((short) 2, header.tag);
 
-    output.write(new byte[]
-      { 0, 3,
-        0, 4,
-        0, 5,
-        6, 7, 8, 9 });
+      output.write(new byte[]
+        { 0, 3,
+          0, 4,
+          0, 5,
+          6, 7, 8, 9 });
 
-    header = reader.read();
-    assertNotNull(header);
-    assertEquals((short) 3, header.version);
-    assertEquals((short) 4, header.messageType);
-    assertEquals((short) 5, header.tag);
+      header = reader.read();
+      assertNotNull(header);
+      assertEquals((short) 3, header.version);
+      assertEquals((short) 4, header.messageType);
+      assertEquals((short) 5, header.tag);
+    }
+    finally
+    {
+      output.close();
+      reader.close();
+    }
   }
 }

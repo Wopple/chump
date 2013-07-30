@@ -50,42 +50,50 @@ public class ChunkReaderTest extends TestCase
     PipedOutputStream output = new PipedOutputStream(input);
     final ChunkReader reader = new ChunkReader(input, true);
 
-    output.write(new byte[]
-      { 0, 0,
-        0, 4,
-        1, 2, 3, 5,
-        0, 3,
-        6, 7 });
-
-    Chunk chunk = reader.read();
-    assertEquals(0, chunk.size);
-    assertTrue(Arrays.equals(new byte[0], chunk.payload));
-
-    chunk = reader.read();
-    assertEquals(4, chunk.size);
-    assertTrue(Arrays.equals(new byte[] { 1, 2, 3, 5 }, chunk.payload));
-
-    final Thread tests = new Thread(new Runnable()
+    try
     {
-      @Override
-      public void run()
-      {
-        try
-        {
-          reader.read();
-          blocked = false;
-        }
-        catch (IOException exception)
-        {
-          exception.printStackTrace();
-        }
-      }
-    });
+      output.write(new byte[]
+        { 0, 0,
+          0, 4,
+          1, 2, 3, 5,
+          0, 3,
+          6, 7 });
 
-    tests.start();
-    tests.join(50);
-    tests.interrupt();
-    assertEquals(true, blocked);
+      Chunk chunk = reader.read();
+      assertEquals(0, chunk.size);
+      assertTrue(Arrays.equals(new byte[0], chunk.payload));
+
+      chunk = reader.read();
+      assertEquals(4, chunk.size);
+      assertTrue(Arrays.equals(new byte[] { 1, 2, 3, 5 }, chunk.payload));
+
+      final Thread tests = new Thread(new Runnable()
+      {
+        @Override
+        public void run()
+        {
+          try
+          {
+            reader.read();
+            blocked = false;
+          }
+          catch (IOException exception)
+          {
+            exception.printStackTrace();
+          }
+        }
+      });
+
+      tests.start();
+      tests.join(50);
+      tests.interrupt();
+      assertEquals(true, blocked);
+    }
+    finally
+    {
+      output.close();
+      reader.close();
+    }
   }
 
   @Test
@@ -95,29 +103,37 @@ public class ChunkReaderTest extends TestCase
     PipedOutputStream output = new PipedOutputStream(input);
     ChunkReader reader = new ChunkReader(input, false);
 
-    Chunk chunk = reader.read();
-    assertNull(chunk);
+    try
+    {
+      Chunk chunk = reader.read();
+      assertNull(chunk);
 
-    output.write(new byte[] { 0 });
+      output.write(new byte[] { 0 });
 
-    chunk = reader.read();
-    assertNull(chunk);
+      chunk = reader.read();
+      assertNull(chunk);
 
-    output.write(new byte[] { 0 });
+      output.write(new byte[] { 0 });
 
-    chunk = reader.read();
-    assertNotNull(chunk);
-    assertEquals(0, chunk.size);
-    assertTrue(Arrays.equals(new byte[0], chunk.payload));
+      chunk = reader.read();
+      assertNotNull(chunk);
+      assertEquals(0, chunk.size);
+      assertTrue(Arrays.equals(new byte[0], chunk.payload));
 
-    output.write(new byte[]
-      { 0, 4,
-        1, 2, 3, 5,
-        6, 7, 8, 9 });
+      output.write(new byte[]
+        { 0, 4,
+          1, 2, 3, 5,
+          6, 7, 8, 9 });
 
-    chunk = reader.read();
-    assertNotNull(chunk);
-    assertEquals(4, chunk.size);
-    assertTrue(Arrays.equals(new byte[] { 1, 2, 3, 5 }, chunk.payload));
+      chunk = reader.read();
+      assertNotNull(chunk);
+      assertEquals(4, chunk.size);
+      assertTrue(Arrays.equals(new byte[] { 1, 2, 3, 5 }, chunk.payload));
+    }
+    finally
+    {
+      output.close();
+      reader.close();
+    }
   }
 }
