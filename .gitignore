@@ -1,19 +1,2 @@
-*.class
-
-# Package Files #
-*.jar
-*.war
-*.ear
-
-# Eclipse Files #
-/java/.classpath
-/java/.project
-/java/junit/.project
-/java/bin
-/java/.settings
-
 # Mac Files #
 .DS_Store
-
-# Maven Files #
-/java/target/

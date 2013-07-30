@@ -1,0 +1,17 @@
+# Java Files #
+*.class
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+# Eclipse Files #
+/.classpath
+/.project
+/junit/.project
+/bin/
+/.settings/
+
+# Maven Files #
+/target/
