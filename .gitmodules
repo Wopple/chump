@@ -1,0 +1,6 @@
+[submodule "chump-java"]
+	path = chump-java
+	url = git@github.com:Wopple/chump-java.git
+[submodule "chump-objc"]
+	path = chump-objc
+	url = git@github.com:Wopple/chump-objc.git
