@@ -19,8 +19,8 @@ version 0
 
 CHUMP is designed to be a language independent protocol.
 
-1. Java
-2. Objective-C
+1. Java (https://github.com/Wopple/chump-java)
+2. Objective-C (https://github.com/Wopple/chump-objc)
 
 ## Origin
 ---------
