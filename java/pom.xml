@@ -3,6 +3,40 @@
   <groupId>com.creeaaakk</groupId>
   <artifactId>chump</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
+  <name>CHUnked Message Protocol</name>
+  <description>CHUMP is a minimal message passing protocol.</description>
+  <url>https://github.com/Wopple/chump</url>
+  <licenses>
+    <license>
+      <name>The New BSD License</name>
+      <url>http://opensource.org/licenses/BSD-3-Clause</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+  <scm>
+    <url>https://github.com/Wopple/chump.git</url>
+    <connection>scm:git:https://github.com/Wopple/chump.git</connection>
+  </scm>
+  <developers>
+    <developer>
+      <id></id>
+      <name>Daniel Tashjian</name>
+      <email>thewopple@gmail.com</email>
+    </developer>
+  </developers>
+  <distributionManagement>
+    <repository>
+      <id>sonatype-staging-repo</id>
+      <name>Sonatype Staging Repository</name>
+      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
+    </repository>
+    <snapshotRepository>
+      <id>sonatype-snapshot-repo</id>
+      <name>Sonatype Snapshot Repository</name>
+      <url>https://oss.sonatype.org/content/repositories/snapshots</url>  
+    </snapshotRepository>
+  </distributionManagement>
   <build>
     <sourceDirectory>src</sourceDirectory>
     <testSourceDirectory>junit</testSourceDirectory>
@@ -16,13 +50,6 @@
         </configuration>
       </plugin>
     </plugins>
-    <extensions>  
-      <extension>  
-        <groupId>org.springframework.build.aws</groupId>  
-        <artifactId>org.springframework.build.aws.maven</artifactId>  
-        <version>3.0.0.RELEASE</version>  
-      </extension>  
-    </extensions>  
   </build>
   <dependencies>
     <dependency>
@@ -32,40 +59,4 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
-  <repositories>
-    <repository>
-      <id>maven-s3-release-repo</id>
-      <name>S3 Release Repository</name>
-      <url>s3://come-here-mvn/releases</url>
-      <releases>
-        <enabled>true</enabled>
-      </releases>
-      <snapshots>
-        <enabled>false</enabled>
-      </snapshots>
-    </repository>
-    <repository>
-      <id>maven-s3-snapshot-repo</id>
-      <name>S3 Snapshot Repository</name>
-      <url>s3://come-here-mvn/snapshots</url>
-      <releases>
-        <enabled>false</enabled>
-      </releases>
-      <snapshots>
-        <enabled>true</enabled>
-      </snapshots>
-    </repository>
-  </repositories>
-  <distributionManagement>
-    <repository>
-      <id>maven-s3-release-repo</id>
-      <name>S3 Release Repository</name>
-      <url>s3://come-here-mvn/releases</url>
-    </repository>
-    <snapshotRepository>
-      <id>maven-s3-snapshot-repo</id>
-      <name>S3 Snapshot Repository</name>
-      <url>s3://come-here-mvn/snapshots</url>  
-    </snapshotRepository>
-  </distributionManagement>
 </project>
